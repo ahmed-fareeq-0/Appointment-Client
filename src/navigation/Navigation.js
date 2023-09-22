@@ -14,14 +14,16 @@ import SettingsScreen from '../screens/profileScreen';
 import { colors } from '../constants/theme'
 import ProfileScreen from '../screens/profileScreen';
 import HeaderComponent from '../components/headerComponent';
+import DoctorsScreen from '../screens/doctorsScreen';
 
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const homeName = "home";
-const appointmentName = "appointment";
-const profileName = "profile";
+const homeName = "الرئيسية";
+const appointmentName = "الحجوزات";
+const profileName = "الملف الشخصي";
+const doctorsName = "الأطباء"
 
 const AppStack = () => {
   return (
@@ -65,6 +67,8 @@ const BottomTabs = () => {
 
           } else if (rn === profileName) {
             iconName = focused ? 'person-circle' : 'person-circle-outline';
+          } else if (rn === doctorsName) {
+            iconName = focused ? 'add-circle' : 'add-circle-outline'
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -85,11 +89,11 @@ const BottomTabs = () => {
       })}
 
     >
-      <Tab.Screen name={profileName} component={ProfileScreen} />
-      <Tab.Screen name={appointmentName} component={AppointmentsScreen} />
-      <Tab.Screen name={homeName} component={HomeScreen} options={{
-        header: () => <HeaderComponent />
-      }} />
+      <Tab.Screen name={profileName} component={ProfileScreen} options={{ header: () => <HeaderComponent /> }} />
+      <Tab.Screen name={appointmentName} component={AppointmentsScreen} options={{ header: () => <HeaderComponent /> }} />
+      <Tab.Screen name={doctorsName} component={DoctorsScreen} options={{ header: () => <HeaderComponent /> }} />
+      <Tab.Screen name={homeName} component={HomeScreen} options={{ header: () => <HeaderComponent /> }} />
+
 
     </Tab.Navigator>
   );

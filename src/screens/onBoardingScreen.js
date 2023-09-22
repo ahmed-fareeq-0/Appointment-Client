@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import Onboarding from 'react-native-onboarding-swiper';
 import LottieView from 'lottie-react-native';
 import { useNavigation } from '@react-navigation/native';
+import { colors } from '../constants/theme';
 
 const { width, height } = Dimensions.get("window");
 
@@ -38,7 +39,7 @@ const OnBoardingScreen = () => {
 
     const pages = [
         {
-            backgroundColor: '#0E21C0',
+            backgroundColor: colors.blue2,
             image: (
                 <View style={styles.lottie}>
                     <LottieView source={require('../../assets/animation_lmq0t7s3.json')} autoPlay loop />
@@ -52,7 +53,7 @@ const OnBoardingScreen = () => {
             subtitle: 'موعد تطبيق لتسهيل عملية حجز المواعيد مع الاطباء في كربلاء',
         },
         {
-            backgroundColor: '#0E21C0',
+            backgroundColor: colors.blue2,
             image: (
                 <View style={styles.lottie}>
                     <LottieView source={require('../../assets/animation_lmpzuxzk.json')} autoPlay loop />

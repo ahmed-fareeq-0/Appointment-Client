@@ -1,16 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { StyleSheet, Text, View, Image, ImageBackground, Dimensions } from 'react-native';
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
+import { colors, sizes } from './../constants/theme';
 
 
+
+
+const { width, height } = Dimensions.get("window");
 const HeaderComponent = () => {
 
     return (
         <Header
-            leftComponent={{ icon: 'menu', color: '#fff' }}
-            centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
-            rightComponent={{ icon: 'home', color: '#fff' }}
+            // backgroundColor='#3498db'
+            backgroundColor={colors.blue2}
+            // leftComponent={{ text: 'ميعاد', style: { color: '#fff', fontSize: 24, fontWeight: 'bold', width: width / 2 } }}
+            leftComponent={<Image source={require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg')} style={styles.headerImage} />}
+            rightComponent={<Ionicons name="notifications" size={28} color="#fff" style={{marginTop:10}} />}
+            containerStyle={{
+                height: sizes.padding * 5 - 10,
+            }}
         />
     );
 }
@@ -37,9 +46,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     headerImage: {
-        width: 35,
-        height: 35,
+        width: 45,
+        height: 45,
         borderRadius: 50,
-        marginHorizontal: 10
+        // marginHorizontal: 10
     },
 });
