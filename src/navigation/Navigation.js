@@ -10,11 +10,11 @@ import SignUp from '../screens/signUp';
 import TermsOfServiceScreen from '../screens/termsOfServiceScreen';
 import AppointmentsScreen from '../screens/appointmentsScreen';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import SettingsScreen from '../screens/profileScreen';
-import { colors } from '../constants/theme'
-import ProfileScreen from '../screens/profileScreen';
+import SettingsScreen from '../screens/settingsScreen';
+import { colors } from '../constants/theme';
 import HeaderComponent from '../components/headerComponent';
 import DoctorsScreen from '../screens/doctorsScreen';
+import SearchComponent from '../components/searchComponent';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +22,7 @@ const Tab = createBottomTabNavigator();
 
 const homeName = "الرئيسية";
 const appointmentName = "الحجوزات";
-const profileName = "الملف الشخصي";
+const settingsName = "الاعدادات";
 const doctorsName = "الأطباء"
 
 const AppStack = () => {
@@ -65,8 +65,8 @@ const BottomTabs = () => {
           } else if (rn === appointmentName) {
             iconName = focused ? 'calendar' : 'calendar-outline';
 
-          } else if (rn === profileName) {
-            iconName = focused ? 'person-circle' : 'person-circle-outline';
+          } else if (rn === settingsName) {
+            iconName = focused ? 'settings' : 'settings-outline';
           } else if (rn === doctorsName) {
             iconName = focused ? 'add-circle' : 'add-circle-outline'
           }
@@ -89,9 +89,9 @@ const BottomTabs = () => {
       })}
 
     >
-      <Tab.Screen name={profileName} component={ProfileScreen} options={{ header: () => <HeaderComponent /> }} />
+      <Tab.Screen name={settingsName} component={SettingsScreen} options={{ header: () => <HeaderComponent /> }} />
       <Tab.Screen name={appointmentName} component={AppointmentsScreen} options={{ header: () => <HeaderComponent /> }} />
-      <Tab.Screen name={doctorsName} component={DoctorsScreen} options={{ header: () => <HeaderComponent /> }} />
+      <Tab.Screen name={doctorsName} component={DoctorsScreen} options={{ header: () => <SearchComponent /> }} />
       <Tab.Screen name={homeName} component={HomeScreen} options={{ header: () => <HeaderComponent /> }} />
 
 

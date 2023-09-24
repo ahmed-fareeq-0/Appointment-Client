@@ -1,10 +1,13 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import DoctorsList from '../components/doctorsListComponent'
+import SearchComponent from '../components/searchComponent'
 
 const DoctorsScreen = () => {
   return (
     <View>
-      <Text>doctors Screen</Text>
+      {/* <SearchComponent /> */}
+      <DoctorsList />
     </View>
   )
 }
