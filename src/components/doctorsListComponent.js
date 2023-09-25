@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 const doctorsData = [
@@ -17,14 +18,15 @@ const doctorsData = [
       location: 'كربلاء الاسكان',
       image: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
     },
-    // ... إضافة المزيد من الأطباء
   ];
   
 
 
 const DoctorsList = () => {
+  const navigation = useNavigation();
+
   const renderDoctorItem = ({ item }) => (
-    <TouchableOpacity style={styles.doctorItem}>
+    <TouchableOpacity style={styles.doctorItem} onPress={() => navigation.navigate('الحجوزات') }>
       <View style={styles.doctorInfo}>
         <Text style={styles.doctorName}>{item.name}</Text>
         <Text style={styles.doctorSpecialty}>{item.specialty}</Text>

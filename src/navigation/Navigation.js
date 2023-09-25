@@ -2,19 +2,23 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import OnBoardingScreen from './../screens/onBoardingScreen';
-import HomeScreen from '../screens/homeScreen';
-import WelcomeScreen from '../screens/welcomeScreen';
-import SignIn from '../screens/signIn';
-import SignUp from '../screens/signUp';
-import TermsOfServiceScreen from '../screens/termsOfServiceScreen';
-import AppointmentsScreen from '../screens/appointmentsScreen';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+
+import HomeScreen from '../screens/homeScreen';
+import SignUp from '../screens/signUp';
+import SignIn from '../screens/signIn';
+import OnBoardingScreen from './../screens/onBoardingScreen';
+import TermsOfServiceScreen from '../screens/termsOfServiceScreen';
+import WelcomeScreen from '../screens/welcomeScreen';
+import AppointmentsScreen from '../screens/appointmentsScreen';
 import SettingsScreen from '../screens/settingsScreen';
-import { colors } from '../constants/theme';
-import HeaderComponent from '../components/headerComponent';
 import DoctorsScreen from '../screens/doctorsScreen';
+import DoctorDetailsScreen from '../screens/doctorDetailsScreen';
+import { colors } from '../constants/theme';
+
+import HeaderComponent from '../components/headerComponent';
 import SearchComponent from '../components/searchComponent';
+import AppointmentBookingScreen from '../screens/appointmentBookingScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -28,11 +32,13 @@ const doctorsName = "الأطباء"
 const AppStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="onBoarding">
-      <Stack.Screen name="onBoarding" component={OnBoardingScreen} />
+      {/* <Stack.Screen name="onBoarding" component={OnBoardingScreen} />
       <Stack.Screen name="welcome" component={WelcomeScreen} />
       <Stack.Screen name="signIn" component={SignIn} />
       <Stack.Screen name="signUp" component={SignUp} />
-      <Stack.Screen name="termsOfService" component={TermsOfServiceScreen} />
+      <Stack.Screen name="termsOfService" component={TermsOfServiceScreen} /> */}
+      {/* <Stack.Screen name="doctorDetails" component={DoctorDetailsScreen} /> */}
+      <Stack.Screen name="appointmentBookingdd" component={AppointmentBookingScreen} />
     </Stack.Navigator>
   );
 };
@@ -99,7 +105,7 @@ const BottomTabs = () => {
   );
 };
 
-const Condition = true;
+const Condition = false;
 const Navigation = () => {
   return (
     <NavigationContainer>
