@@ -38,7 +38,7 @@ const AppStack = () => {
       <Stack.Screen name="signUp" component={SignUp} />
       <Stack.Screen name="termsOfService" component={TermsOfServiceScreen} /> */}
       {/* <Stack.Screen name="doctorDetails" component={DoctorDetailsScreen} /> */}
-      <Stack.Screen name="appointmentBookingdd" component={AppointmentBookingScreen} />
+      <Stack.Screen name="appointmentBooking" component={AppointmentBookingScreen} />
     </Stack.Navigator>
   );
 };

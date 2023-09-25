@@ -4,37 +4,50 @@ import { colors, sizes } from '../constants/theme';
 import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Input } from 'react-native-elements';
+import { Calendar } from 'react-native-calendars';
 
 
 const AppointmentBookingScreen = () => {
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
     const [patientName, setPatientName] = useState('');
+    const [showCalendar, setShowCalendar] = useState(true);
+
 
     const handleAppointment = () => {
 
         console.log('تم حجز موعد:');
-        console.log('date:', selectedDate);
-        console.log('time:', selectedTime);
         console.log('patient name:', patientName);
-
-        setSelectedDate('');
-        setSelectedTime('');
+        console.log('Selected Date:', selectedDate);
         setPatientName('');
+    };
+
+    const onDateSelect = (date) => {
+        setSelectedDate(date.dateString);
+        // setShowCalendar(false)
     };
 
     return (
         <View style={styles.container}>
             <View style={{ marginVertical: sizes.base * 3 }}>
-                <Text style={styles.title}>تسجيل حساب جديد</Text>
-                <Text style={styles.descTitle}>مرحبا بك عرفنا بنفسك اكثر من خلال تسجيل معلوماتك الشخصية.</Text>
+
             </View>
             <View style={styles.wrapper}>
-                <Input
-                    placeholder='اختر تاريخ الموعد'
-                    value={selectedDate}
-                    onChangeText={setSelectedDate}
-                    rightIcon={<MaterialIcons name="person" size={24} color="black" />}
+
+                <Text style={styles.title}>حجز موعد</Text>
+                {showCalendar && <View>
+                    <Calendar
+                        onDayPress={onDateSelect}
+                        style={styles.calendarContainer}
+                        markedDates={{ [selectedDate]: { selected: true, disableTouchEvent: true, selectedDotColor: 'orange' } }}
+                    />
+                </View>}
+
+                {/* <Input
+                    placeholder='اسم المريض'
+                    value={patientName}
+                    onChangeText={setPatientName}
+                    rightIcon={<FontAwesome name="phone" size={24} color="black" />}
                     numberOfLines={2}
                     textAlign='right'
                 />
@@ -45,15 +58,24 @@ const AppointmentBookingScreen = () => {
                     rightIcon={<MaterialIcons name="email" size={24} color="black" />}
                     numberOfLines={2}
                     textAlign='right'
-                />
-                <Input
-                    placeholder='اسم المريض'
-                    value={patientName}
-                    onChangeText={setPatientName}
-                    rightIcon={<FontAwesome name="phone" size={24} color="black" />}
-                    numberOfLines={2}
-                    textAlign='right'
-                />
+                /> */}
+
+
+                <TouchableOpacity onPress={() => setShowCalendar(true)}>
+                    <LinearGradient colors={[colors.blue, colors.pink]} start={[0.1, 0.1]} end={[1, 1]} style={styles.btn}>
+                        <Text style={styles.btnText}>
+                            اختر الوقت
+                        </Text>
+                    </LinearGradient>
+                </TouchableOpacity>
+
+                {/* <TouchableOpacity onPress={() => setShowCalendar(true)}>
+                    <LinearGradient colors={[colors.blue, colors.pink]} start={[0.1, 0.1]} end={[1, 1]} style={styles.btn}>
+                        <Text style={styles.btnText}>
+                            اختر التاريخ
+                        </Text>
+                    </LinearGradient>
+                </TouchableOpacity> */}
 
                 <TouchableOpacity onPress={handleAppointment}>
                     <LinearGradient colors={[colors.blue, colors.pink]} start={[0.1, 0.1]} end={[1, 1]} style={styles.btn}>
@@ -62,6 +84,7 @@ const AppointmentBookingScreen = () => {
                         </Text>
                     </LinearGradient>
                 </TouchableOpacity>
+
             </View>
         </View>
     );
@@ -74,9 +97,9 @@ const styles = StyleSheet.create({
         // justifyContent:'center'
     },
     wrapper: {
-        justifyContent: 'center',
+        flex: 1,
+        justifyContent: 'flex-start',
         padding: 16,
-        // backgroundColor:'blue'
     },
     btn: {
         // paddingHorizontal: sizes.padding * 4,
@@ -96,22 +119,15 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: sizes.h1,
         textAlign: 'center',
-        marginBottom: sizes.spacing
+        marginBottom: 56
+        // backgroundColor: 'red'
     },
-    textSignup: {
-        color: colors.gray,
-        fontSize: sizes.caption
-    },
-    signup: {
-        marginVertical: sizes.padding / 3,
-        alignSelf: 'center',
-    },
-    descTitle: {
-        fontSize: sizes.small,
-        // padding: sizes.spacing,
-        paddingHorizontal: 20,
-        textAlign: 'center',
-        color: colors.gray3,
+    calendarContainer: {
+        marginBottom: 40,
+        // marginVertical:10,
+        padding: 15,
+        // backgroundColor: 'red',
+        borderRadius: 15
     }
 });
 

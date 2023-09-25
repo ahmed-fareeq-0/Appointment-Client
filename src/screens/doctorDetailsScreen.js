@@ -20,7 +20,7 @@ const DoctorDetailsScreen = () => {
     };
 
     const handleBookAppointment = () => {
-        alert('تم حجز الدكتور بنجاح!');
+        console.log('صفحة الحجز');
     };
 
     const openMapsApp = () => {
@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
         // borderRadius: 8,
         // borderBottomEndRadius: 0,
         // borderBottomStartRadius: 0,
-        borderTopLeftRadius:25,
-        borderTopRightRadius:25,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
