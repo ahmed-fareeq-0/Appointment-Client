@@ -40,7 +40,7 @@ const SignIn = () => {
           numberOfLines={2}
           textAlign='right'
         />
-        <TouchableOpacity onPress={() => navigation.navigate('signIn')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Root')}>
           <LinearGradient colors={[colors.blue, colors.pink]} start={[0.1, 0.1]} end={[1, 1]} style={styles.btn}>
             <Text style={styles.btnText}>
               تسجيل الدخول

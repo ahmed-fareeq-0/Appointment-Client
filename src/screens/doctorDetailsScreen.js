@@ -4,8 +4,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 import MapView, { Marker } from 'react-native-maps';
 import { colors, sizes } from '../constants/theme';
 import { Linking } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const DoctorDetailsScreen = () => {
+    const navigation = useNavigation()
     const doctor = {
         name: 'د. علي حسن ',
         image: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
@@ -21,6 +24,7 @@ const DoctorDetailsScreen = () => {
 
     const handleBookAppointment = () => {
         console.log('صفحة الحجز');
+        navigation.navigate("appointmentBooking")
     };
 
     const openMapsApp = () => {

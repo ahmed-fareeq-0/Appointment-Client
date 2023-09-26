@@ -1,14 +1,18 @@
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import LottieView from 'lottie-react-native';
-import React from 'react'
-import HeaderComponent from '../components/headerComponent';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import MainHeader from '../components/mainHeader';
+import Specialties from '../components/specialtiesComponent';
+import RecommendedDoctors from '../components/recommendedDoctors';
 
-const { width, height } = Dimensions.get("window");
 const HomeScreen = () => {
     return (
         <View style={styles.container}>
-            <Text>home screen</Text>
+            <MainHeader />
+            <View style={{ paddingHorizontal: 24, paddingVertical: 24 }}>
+                <Text style={styles.title}>التخصصات</Text>
+            </View>
+            <Specialties />
+            <RecommendedDoctors />
         </View>
     )
 }
@@ -16,7 +20,12 @@ const HomeScreen = () => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
+    container: {
+        flex: 1,
+        backgroundColor: '#fbfbfb',
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
     },
 })
