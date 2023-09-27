@@ -7,9 +7,9 @@ import OnBoardingScreen from './../screens/onBoardingScreen';
 import TermsOfServiceScreen from '../screens/termsOfServiceScreen';
 import WelcomeScreen from '../screens/welcomeScreen';
 import DoctorDetailsScreen from '../screens/doctorDetailsScreen';
-import AppointmentBookingScreen from '../screens/appointmentBookingScreen';
 import TabNavigator from './TabNavigator';
 import { StatusBar } from 'react-native';
+import AppointmentBookingScreen from '../screens/appointmentBookingScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -25,6 +25,7 @@ const AppStack = () => {
       <Stack.Screen name="doctorDetails" component={DoctorDetailsScreen} />
       <Stack.Screen name="Root" component={TabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="appointmentBooking" component={AppointmentBookingScreen} />
+
     </Stack.Navigator>
   );
 };
