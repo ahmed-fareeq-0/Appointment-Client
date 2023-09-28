@@ -10,22 +10,31 @@ import DoctorDetailsScreen from '../screens/doctorDetailsScreen';
 import TabNavigator from './TabNavigator';
 import { StatusBar } from 'react-native';
 import AppointmentBookingScreen from '../screens/appointmentBookingScreen';
+import DrawerNavigator from './drawerNavigator';
+
+
 
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
+  const condition = true;
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="onBoarding">
-      <Stack.Screen name="onBoarding" component={OnBoardingScreen} />
-      <Stack.Screen name="welcome" component={WelcomeScreen} />
-      <Stack.Screen name="signIn" component={SignIn} />
-      <Stack.Screen name="signUp" component={SignUp} />
-      <Stack.Screen name="termsOfService" component={TermsOfServiceScreen} />
-      <Stack.Screen name="doctorDetails" component={DoctorDetailsScreen} />
-      <Stack.Screen name="Root" component={TabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="appointmentBooking" component={AppointmentBookingScreen} />
-
+      {condition ? (
+        <>
+          <Stack.Screen name="root" component={DrawerNavigator} />
+        </>
+      ) : (
+        <>
+          <Stack.Screen name="onBoarding" component={OnBoardingScreen} />
+          <Stack.Screen name="welcome" component={WelcomeScreen} />
+          <Stack.Screen name="signIn" component={SignIn} />
+          <Stack.Screen name="signUp" component={SignUp} />
+          <Stack.Screen name="termsOfService" component={TermsOfServiceScreen} />
+        </>
+      )
+      }
     </Stack.Navigator>
   );
 };
