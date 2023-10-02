@@ -1,24 +1,85 @@
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import LottieView from 'lottie-react-native';
-import React from 'react'
-import MainHeader from '../components/mainHeader';
+import React, { useState, useEffect } from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { colors } from '../constants/theme';
 
-const { width, height } = Dimensions.get("window");
 const AppointmentsScreen = () => {
+    const [appointments, setAppointments] = useState([]);
+
+    useEffect(() => {
+        const fetchedAppointments = getAppointments();
+        setAppointments(fetchedAppointments);
+    }, []);
+
+    const getAppointments = () => {
+        return [
+            { id: 1, time: '2023-09-28 10:00 AM' },
+            { id: 2, time: '2023-09-29 11:00 AM' },
+        ];
+    };
+
+    const renderAppointmentItem = ({ item }) => (
+        <View style={styles.appointmentItem}>
+            <Ionicons name="calendar" size={24} color={colors.blue2} style={styles.icon} />
+            <View style={styles.appointmentDetails}>
+                <Text style={styles.appointmentId}>Appointment ID: {item.id}</Text>
+                <Text style={styles.appointmentTime}>Time: {item.time}</Text>
+            </View>
+        </View>
+    );
+
     return (
         <View style={styles.container}>
-            <MainHeader />
-            <Text>Appointments Screen</Text>
+            <Text style={styles.header}>Appointments</Text>
+            <FlatList
+                data={appointments}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={renderAppointmentItem}
+            />
         </View>
-    )
-}
-
-export default AppointmentsScreen
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fbfbfb',
+        backgroundColor: '#f9f9f9',
+        padding: 20,
+    },
+    header: {
+        fontSize: 24,
+        marginBottom: 20,
+        color: colors.blue2,
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
+    appointmentItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 10,
+        backgroundColor: '#fff',
+        padding: 16,
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    icon: {
+        marginRight: 15,
+    },
+    appointmentDetails: {
+        flex: 1,
+    },
+    appointmentId: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    appointmentTime: {
+        fontSize: 16,
+        color: '#555',
     },
 });
+
+export default AppointmentsScreen;

@@ -10,7 +10,7 @@ const MainHeader = () => {
     const insets = useSafeAreaInsets();
     return (
         <View style={[styles.container, { marginTop: insets.top }]}>
-            <Ionicons name="notifications" size={28} color={colors.blue2} style={{ marginTop: 10 }} />
+            <Ionicons name="notifications" size={28} color={colors.blue2} style={{ marginTop: 10 }} onPress={() => navigation.navigate("notifications")} />
             <Text style={styles.title}>Appointment</Text>
             <Ionicons name="menu-sharp" size={28} color={colors.blue2} style={{ marginTop: 10 }} onPress={() => navigation.openDrawer()} />
         </View>

@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 import SettingsScreen from '../screens/settingsScreen';
 import DoctorDetailsScreen from '../screens/doctorDetailsScreen';
 import AppointmentBookingScreen from '../screens/appointmentBookingScreen';
@@ -8,6 +8,8 @@ import TabNavigator from './TabNavigator';
 
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import NotificationsScreen from '../screens/notificationsScreen';
+import { colors } from '../constants/theme';
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
@@ -15,7 +17,7 @@ const DrawerNavigator = () => {
         <Drawer.Navigator
             screenOptions={{
                 headerShown: false,
-                drawerActiveTintColor: '#007BFF',
+                drawerActiveTintColor: colors.blue2,
                 drawerInactiveTintColor: '#000',
                 drawerLabelStyle: {
                     fontSize: 16,
@@ -29,7 +31,7 @@ const DrawerNavigator = () => {
                 options={{
                     headerShown: false,
                     drawerIcon: ({ focused }) => (
-                        <AntDesign name={focused ? 'home' : 'home'} size={24} color={focused ? '#007BFF' : '#000'} />
+                        <AntDesign name={focused ? 'home' : 'home'} size={24} color={focused ? colors.blue2 : '#000'} />
                     ),
                 }} />
             <Drawer.Screen name="doctorDetails" component={DoctorDetailsScreen}
@@ -37,12 +39,13 @@ const DrawerNavigator = () => {
                     drawerIcon: ({ focused }) => (
                         <AntDesign name={focused ? 'user' : 'user'} size={24} color={focused ? '#007BFF' : '#000'} />
                     ),
+                    drawerItemStyle: { display: 'none' }
                 }}
             />
             <Drawer.Screen name="الاعدادات" component={SettingsScreen}
                 options={{
                     drawerIcon: ({ focused }) => (
-                        <AntDesign name={focused ? 'setting' : 'setting'} size={24} color={focused ? '#007BFF' : '#000'} />
+                        <AntDesign name={focused ? 'setting' : 'setting'} size={24} color={focused ? colors.blue2 : '#000'} />
                     ),
                 }}
             />
@@ -51,6 +54,16 @@ const DrawerNavigator = () => {
                     drawerIcon: ({ focused }) => (
                         <AntDesign name={focused ? 'calendar' : 'calendar'} size={24} color={focused ? '#007BFF' : '#000'} />
                     ),
+                    drawerItemStyle: { display: 'none' }
+                }}
+            />
+            <Drawer.Screen name="notifications" component={NotificationsScreen}
+                options={{
+                    drawerIcon: ({ focused }) => (
+                        <Ionicons name={focused ? 'notifications-outline' : 'notifications-outline'} size={24} color={focused ? '#007BFF' : '#000'} />
+                    ),
+                    drawerItemStyle: { display: 'none' }
+
                 }}
             />
         </Drawer.Navigator>
