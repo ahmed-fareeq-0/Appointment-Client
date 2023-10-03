@@ -1,7 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { AntDesign, Ionicons } from '@expo/vector-icons';
-import SettingsScreen from '../screens/settingsScreen';
 import DoctorDetailsScreen from '../screens/doctorDetailsScreen';
 import AppointmentBookingScreen from '../screens/appointmentBookingScreen';
 import TabNavigator from './TabNavigator';
@@ -10,6 +9,7 @@ import TabNavigator from './TabNavigator';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import NotificationsScreen from '../screens/notificationsScreen';
 import { colors } from '../constants/theme';
+import SettingsScreen from '../screens/settingsScreen';
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {

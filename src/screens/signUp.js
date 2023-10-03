@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: sizes.h1,
     textAlign: 'center',
-    marginBottom:sizes.spacing
+    marginBottom: sizes.spacing
   },
   textSignup: {
     color: colors.gray,

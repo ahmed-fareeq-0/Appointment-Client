@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './../screens/homeScreen';
-import SettingsScreen from '../screens/settingsScreen';
+import ProfileScreen from '../screens/profileScreen';
 import AppointmentsScreen from '../screens/appointmentsScreen';
 import DoctorsScreen from '../screens/doctorsScreen';
 import { colors } from '../constants/theme';
@@ -46,7 +46,7 @@ const TabNavigator = () => {
                 },
             })}
         >
-            <Tab.Screen name={profileName} component={SettingsScreen} options={{ headerShown: false }} />
+            <Tab.Screen name={profileName} component={ProfileScreen} options={{ headerShown: false }} />
             <Tab.Screen name={appointmentName} component={AppointmentsScreen} options={{ headerShown: false }} />
             <Tab.Screen name={doctorsName} component={DoctorsScreen} options={{ headerShown: false }} />
             <Tab.Screen name={homeName} component={HomeScreen} options={{ headerShown: false }} />

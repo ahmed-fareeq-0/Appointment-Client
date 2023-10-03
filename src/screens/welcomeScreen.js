@@ -14,7 +14,7 @@ const WelcomeScreen = () => {
 
                 <View style={{ alignItems: 'center', marginVertical: 20 }}>
                     <Text style={[styles.title, { color: colors.blue2 }]}>منظور جديد لصحتك</Text>
-                    <Text style={{ color: colors.gray2, textAlign:'center', paddingHorizontal:25 }}>تابع حالتك المرضية وحالة عائلتك الصحية من مواعيد, أدوية, في منصة واحدة!</Text>
+                    <Text style={{ color: colors.gray2, textAlign: 'center', paddingHorizontal: 25 }}>تابع حالتك المرضية وحالة عائلتك الصحية من مواعيد, أدوية, في منصة واحدة!</Text>
                 </View>
 
                 <View style={styles.lottie}>
@@ -23,14 +23,19 @@ const WelcomeScreen = () => {
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate('signIn')}>
                         <LinearGradient colors={[colors.blue, colors.pink]} start={[0.1, 0.1]} end={[1, 1]} style={styles.btn}>
-                            <Text style={[styles.btnText, {color:colors.white}]}>
+                            <Text style={[styles.btnText, { color: colors.white }]}>
                                 تسجيل الدخول
                             </Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.btn, { borderWidth: 0.4, borderColor: 'black', color:colors.black }]} onPress={() => navigation.navigate('signUp')}>
+                    <TouchableOpacity style={[styles.btn, { borderWidth: 0.4, borderColor: 'black', color: colors.black }]} onPress={() => navigation.navigate('signUp')}>
                         <Text style={styles.btnText}>
-                            حساب جديد
+                            حساب المستخدم
+                        </Text>
+                    </TouchableOpacity >
+                    <TouchableOpacity style={[styles.btn, { borderWidth: 0.4, borderColor: 'black', color: colors.black }]} onPress={() => navigation.navigate('signUpDoctors')}>
+                        <Text style={styles.btnText}>
+                            حساب الطبيب
                         </Text>
                     </TouchableOpacity >
                     <TouchableOpacity style={[styles.termsOfServices]} onPress={() => navigation.navigate('termsOfService')}>
@@ -56,13 +61,13 @@ const styles = StyleSheet.create({
     lottie: {
         width: width * 0.9,
         height: width,
-        marginVertical: 20
+        // marginVertical: 10
     },
     title: {
         fontSize: sizes.h1,
         marginTop: 30,
         marginBottom: 10,
-        fontWeight:'bold'
+        fontWeight: 'bold'
 
     },
     btn: {
@@ -84,6 +89,7 @@ const styles = StyleSheet.create({
     btnText: {
         fontWeight: "bold",
         fontSize: 18,
+        textAlign: 'center'
     }
 
 })
