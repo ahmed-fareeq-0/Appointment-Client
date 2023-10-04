@@ -30,7 +30,7 @@ const AppointmentsScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Appointments</Text>
+            <Text style={styles.header}>الاشعارات</Text>
             <FlatList
                 data={appointments}
                 keyExtractor={(item) => item.id.toString()}
@@ -43,15 +43,14 @@ const AppointmentsScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#fbfbfb',
         padding: 20,
     },
     header: {
         fontSize: 24,
-        marginBottom: 20,
-        color: colors.blue2,
         fontWeight: 'bold',
-        textAlign: 'center'
+        marginBottom: 20,
+        color: '#007BFF',
     },
     appointmentItem: {
         flexDirection: 'row',

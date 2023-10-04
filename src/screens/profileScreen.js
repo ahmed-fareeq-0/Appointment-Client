@@ -21,7 +21,10 @@ const ProfileScreen = () => {
           <Text style={styles.label}>العنوان</Text>
           <Text style={styles.value}>كربلاء</Text>
         </View>
-        {/* Add more profile information as needed */}
+        <View style={styles.infoItem}>
+          <Text style={styles.label}>رقم الهاتف</Text>
+          <Text style={styles.value}>07715503646</Text>
+        </View>
       </View>
     </View>
   );
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingTop: 50,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#fbfbfb',
   },
   profileImage: {
     width: 150,
@@ -53,6 +56,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 2,
   },
   infoItem: {
     flexDirection: 'row',

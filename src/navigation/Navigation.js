@@ -6,10 +6,7 @@ import SignIn from '../screens/signIn';
 import OnBoardingScreen from './../screens/onBoardingScreen';
 import TermsOfServiceScreen from '../screens/termsOfServiceScreen';
 import WelcomeScreen from '../screens/welcomeScreen';
-import DoctorDetailsScreen from '../screens/doctorDetailsScreen';
-import TabNavigator from './TabNavigator';
 import { StatusBar } from 'react-native';
-import AppointmentBookingScreen from '../screens/appointmentBookingScreen';
 import DrawerNavigator from './drawerNavigator';
 import SignUpDoctors from '../screens/signUpDoctors'
 
@@ -19,7 +16,7 @@ import SignUpDoctors from '../screens/signUpDoctors'
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
-  const condition = false;
+  const condition = true;
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="onBoarding">
       {condition ? (
