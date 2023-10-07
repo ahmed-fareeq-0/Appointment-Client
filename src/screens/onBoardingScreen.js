@@ -39,7 +39,7 @@ const OnBoardingScreen = () => {
 
     const pages = [
         {
-            backgroundColor: colors.blue2,
+            backgroundColor: "#fbfbfb",
             image: (
                 <View style={styles.lottie}>
                     <LottieView source={require('../../assets/animation_lmq0t7s3.json')} autoPlay loop />
@@ -53,7 +53,7 @@ const OnBoardingScreen = () => {
             subtitle: 'موعد تطبيق لتسهيل عملية حجز المواعيد مع الاطباء في كربلاء',
         },
         {
-            backgroundColor: colors.blue2,
+            backgroundColor: "#fbfbfb",
             image: (
                 <View style={styles.lottie}>
                     <LottieView source={require('../../assets/animation_lmpzuxzk.json')} autoPlay loop />
@@ -72,7 +72,7 @@ const OnBoardingScreen = () => {
     const doneBtnComponent = () => {
         return (
             <TouchableOpacity style={{ padding: 15 }} onPress={handleDone}>
-                <Text style={[styles.buttonText, { color: '#fff' }]}>تم</Text>
+                <Text style={[styles.buttonText, { color: '#000' }]}>تم</Text>
             </TouchableOpacity>
         )
     }
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         height: width,
     },
     buttonText: {
-        color: '#fff',
+        color: '#000',
         fontSize: 18,
         fontWeight: 'bold',
     },

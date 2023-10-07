@@ -10,6 +10,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import NotificationsScreen from '../screens/notificationsScreen';
 import { colors } from '../constants/theme';
 import SettingsScreen from '../screens/settingsScreen';
+import AboutScreen from '../screens/aboutScreen';
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
@@ -64,6 +65,13 @@ const DrawerNavigator = () => {
                     ),
                     drawerItemStyle: { display: 'none' }
 
+                }}
+            />
+            <Drawer.Screen name="حول" component={AboutScreen}
+                options={{
+                    drawerIcon: ({ focused }) => (
+                        <AntDesign name={focused ? 'setting' : 'setting'} size={24} color={focused ? colors.blue2 : '#000'} />
+                    ),
                 }}
             />
         </Drawer.Navigator>

@@ -1,26 +1,15 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Input, Button } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, sizes } from '../constants/theme';
 import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { Context } from '../context/Provider';
 
 const SignUp = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setconfirmPassword] = useState('');
+  const { username, setUsername, email, setEmail, phone, setPhone, password, setPassword, confirmPassword, setconfirmPassword, handleSignUp } = useContext(Context);
   const navigation = useNavigation();
-
-  const handleSignUp = () => {
-    console.log('Username:', username);
-    console.log('email:', email);
-    console.log('phone:', phone);
-    console.log('password:', password);
-    console.log('confirmPassword:', confirmPassword);
-  };
 
   return (
     <View style={styles.container}>

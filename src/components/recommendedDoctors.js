@@ -1,8 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
 import { colors } from '../constants/theme';
+import { useNavigation } from '@react-navigation/native';
+
 
 const RecommendedDoctors = () => {
+    const navigation = useNavigation();
 
     const doctorsData = [
         {
@@ -85,14 +88,14 @@ const RecommendedDoctors = () => {
     ];
 
     const renderRecommendedDoctors = ({ item }) => (
-        <View style={styles.doctorItem}>
+        <TouchableOpacity style={styles.doctorItem} onPress={() => navigation.navigate('doctorDetails')}>
             <Image source={item.imageSource} style={styles.image} />
             <View style={styles.textContainer}>
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.specialty}>{item.specialty}</Text>
                 <Text style={styles.description}>{item.description}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 
     return (
