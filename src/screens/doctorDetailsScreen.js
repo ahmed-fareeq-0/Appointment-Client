@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Modal } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import MapView, { Marker } from 'react-native-maps';
 import { colors, sizes } from '../constants/theme';
 import { Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons, FontAwesome5, AntDesign } from '@expo/vector-icons';
 
 
 const DoctorDetailsScreen = () => {
@@ -57,24 +58,46 @@ const DoctorDetailsScreen = () => {
 
             </MapView>
 
-            <View style={styles.header}>
-                <Image source={doctor.image} style={styles.doctorImage} />
-                <View style={styles.doctorInfo}>
-                    <Text style={styles.doctorName}>{doctor.name}</Text>
-                    <Text style={styles.doctorAddress}>الموقع :{doctor.address}</Text>
-                    <Text style={styles.doctorDetails}>الاختصاص: {doctor.specialization}</Text>
-                    <Text style={styles.doctorDetails}>الوصف: {doctor.bio}</Text>
-                    <Text style={styles.doctorDetails}>رقم الهاتف: {doctor.phone}</Text>
+
+
+            <View style={styles.box}>
+                <View style={styles.info}>
+                    <Image source={doctor.image} style={styles.doctorImage} />
+                    <View style={styles.doctorInfo}>
+                        <Text style={styles.doctorName}>{doctor.name}</Text>
+                        <View style={styles.tttt}>
+                            <FontAwesome5 name="location-arrow" size={16} color={colors.blue2} />
+                            <Text style={styles.doctorAddress}>{doctor.address}</Text>
+                        </View>
+                        <View style={styles.tttt}>
+                            <FontAwesome5 name="stethoscope" size={16} color={colors.blue2} />
+                            <Text style={styles.doctorDetails}>{doctor.specialization}</Text>
+                        </View>
+                        {/* <View style={styles.tttt}>
+                            <Ionicons name="information-circle-outline" size={19} color={colors.blue2} />
+                            <Text style={styles.doctorDetails}>{doctor.bio}</Text>
+                        </View> */}
+                        <View style={styles.tttt}>
+                            <FontAwesome5 name="phone" size={16} color={colors.blue2} />
+                            <Text style={styles.doctorDetails}>{doctor.phone}</Text>
+                        </View>
+
+                    </View>
+                </View>
+
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                    <TouchableOpacity style={styles.bookButton} onPress={handleBookAppointment}>
+                        <Text style={styles.bookButtonText}>حجز</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={openMapsApp} style={styles.openMapsbutton} >
+                        <Text style={styles.openMapsbuttonText}>احصل على الاتجاهات</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
 
-            <TouchableOpacity style={styles.bookButton} onPress={handleBookAppointment}>
-                <Text style={styles.bookButtonText}>حجز</Text>
-            </TouchableOpacity>
 
-            <TouchableOpacity onPress={openMapsApp} style={styles.openMapsbutton} >
-                <Text style={styles.openMapsbuttonText}>احصل على الاتجاهات</Text>
-            </TouchableOpacity>
+
 
         </View>
     );
@@ -84,22 +107,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    header: {
+    info: {
         flexDirection: 'row',
-        backgroundColor: '#fff',
-        paddingHorizontal: 16,
-        paddingVertical: 25,
-        // marginTop: 50,
-        // borderRadius: 8,
+        // paddingHorizontal: 16,
+        // paddingVertical: 20,
+        // marginHorizontal: 10,
+        marginBottom: 10,
+        // borderRadius: 15,
         // borderBottomEndRadius: 0,
         // borderBottomStartRadius: 0,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 2,
-        elevation: 2,
+
         // marginHorizontal: 16
     },
     doctorImage: {
@@ -115,15 +132,22 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
+    tttt: {
+        flexDirection: 'row',
+        marginVertical: 6,
+    },
     doctorAddress: {
         fontSize: 16,
-        marginBottom: 5,
+        // marginBottom: 5,
         color: '#555',
+        // textAlign: 'left'
+        marginLeft: 5
     },
     doctorDetails: {
         fontSize: 16,
         color: '#777', // لون النص الفاتح
         marginBottom: 2,
+        marginLeft: 5
     },
     map: {
         flex: 1,
@@ -135,14 +159,16 @@ const styles = StyleSheet.create({
     },
     bookButton: {
         backgroundColor: colors.blue2,
-        // paddingHorizontal: sizes.padding * 4,
+        paddingHorizontal: 50,
         height: sizes.base * 3,
-        // borderRadius: sizes.radius,
-        borderTopEndRadius: 0,
-        borderTopStartRadius: 0,
+        borderRadius: 10,
+        // borderTopEndRadius: 0,
+        // borderTopStartRadius: 0,
         // marginHorizontal: 16,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginHorizontal: 10,
+
     },
     bookButtonText: {
         fontWeight: "bold",
@@ -151,19 +177,48 @@ const styles = StyleSheet.create({
     },
     openMapsbutton: {
         backgroundColor: colors.white,
-        // paddingHorizontal: sizes.padding * 4,
+        paddingHorizontal: 20,
         height: sizes.base * 3,
         // borderRadius: sizes.radius,
-        borderTopEndRadius: 0,
-        borderTopStartRadius: 0,
+        borderWidth: 1,
+        borderColor: colors.blue2,
+        borderRadius: 10,
+        // borderTopEndRadius: 0,
+        // borderTopStartRadius: 0,
         // marginHorizontal: 16,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginHorizontal: 10,
+        // borderBottomEndRadius: 15,
+        // borderBottomStartRadius: 15,
+
+
     },
     openMapsbuttonText: {
         fontWeight: "bold",
         fontSize: 18,
         color: colors.blue2
+    },
+    box: {
+
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+
+        marginHorizontal: 10,
+        backgroundColor: '#fff',
+        position: 'absolute',
+        bottom: 10,
+        left: 0,
+        right: 0,
+
+        // borderTopLeftRadius: 15,
+        // borderTopRightRadius: 15,
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
+        elevation: 2,
     }
 });
 
