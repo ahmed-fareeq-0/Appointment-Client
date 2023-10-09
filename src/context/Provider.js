@@ -14,6 +14,10 @@ export const Provider = ({ children }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setconfirmPassword] = useState('');
 
+
+  const [usernameSignIn, setUsernameSignIn] = useState('');
+  const [passwordSignIn, setPasswordSignIn] = useState('');
+
   const handleAppointmentBooking = () => {
     if (selectedDate && selectedTime) {
       // Implement the booking logic here
@@ -29,6 +33,13 @@ export const Provider = ({ children }) => {
     console.log('phone:', phone);
     console.log('password:', password);
     console.log('confirmPassword:', confirmPassword);
+  };
+
+  const handleSignIn = () => {
+    console.log('Username:', usernameSignIn);
+    console.log('Password:', passwordSignIn);
+    setUsernameSignIn("")
+    setPasswordSignIn("")
   };
 
   return (
@@ -49,7 +60,12 @@ export const Provider = ({ children }) => {
         setPhone,
         setPassword,
         setconfirmPassword,
-        handleSignUp
+        handleSignUp,
+        usernameSignIn,
+        setUsernameSignIn,
+        passwordSignIn,
+        setPasswordSignIn,
+        handleSignIn
 
       }}>
       {children}
