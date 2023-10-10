@@ -70,7 +70,7 @@ const DrawerNavigator = () => {
             <Drawer.Screen name="حول" component={AboutScreen}
                 options={{
                     drawerIcon: ({ focused }) => (
-                        <AntDesign name={focused ? 'setting' : 'setting'} size={24} color={focused ? colors.blue2 : '#000'} />
+                        <AntDesign name={focused ? 'exclamationcircleo' : 'exclamationcircleo'} size={24} color={focused ? colors.blue2 : '#000'} />
                     ),
                 }}
             />

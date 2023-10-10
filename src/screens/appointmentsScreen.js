@@ -13,8 +13,8 @@ const AppointmentsScreen = () => {
 
     const getAppointments = () => {
         return [
-            { id: 1, time: '2023-09-28 10:00 AM' },
-            { id: 2, time: '2023-09-29 11:00 AM' },
+            { id: 1, time: '2023-09-28 10:00 AM', appointmentType:'د.محمد حسن اختصاص أذن وحنجرة' },
+            { id: 2, time: '2023-09-29 11:00 AM', appointmentType:'د.علي محمد اختصاص باطنية' },
         ];
     };
 
@@ -22,15 +22,15 @@ const AppointmentsScreen = () => {
         <View style={styles.appointmentItem}>
             <Ionicons name="calendar" size={24} color={colors.blue2} style={styles.icon} />
             <View style={styles.appointmentDetails}>
-                <Text style={styles.appointmentId}>Appointment ID: {item.id}</Text>
-                <Text style={styles.appointmentTime}>Time: {item.time}</Text>
+                <Text style={styles.appointmentId}>{item.appointmentType}</Text>
+                <Text style={styles.appointmentTime}>وقت الموعد: {item.time}</Text>
             </View>
         </View>
     );
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>الاشعارات</Text>
+            <Text style={styles.header}>الحجوزات</Text>
             <FlatList
                 data={appointments}
                 keyExtractor={(item) => item.id.toString()}
@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
-        color: '#007BFF',
+        color: colors.blue2,
     },
     appointmentItem: {
         flexDirection: 'row',
-        alignItems: 'center',
+        // alignItems: 'center',
         marginBottom: 10,
         backgroundColor: '#fff',
         padding: 16,
@@ -76,8 +76,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     appointmentTime: {
-        fontSize: 16,
+        fontSize: 14,
         color: '#555',
+        marginTop:5,
     },
 });
 

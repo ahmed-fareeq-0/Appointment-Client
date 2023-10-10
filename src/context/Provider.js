@@ -11,6 +11,7 @@ export const Provider = ({ children }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [specialty, setSpecialty] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setconfirmPassword] = useState('');
 
@@ -53,6 +54,8 @@ export const Provider = ({ children }) => {
         username,
         email,
         phone,
+        specialty,
+        setSpecialty,
         password,
         confirmPassword,
         setUsername,
