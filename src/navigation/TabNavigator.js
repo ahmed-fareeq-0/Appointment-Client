@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './../screens/homeScreen';
+import HomeScreen from '../screens/homeScreen';
 import ProfileScreen from '../screens/profileScreen';
 import AppointmentsScreen from '../screens/appointmentsScreen';
 import DoctorsScreen from '../screens/doctorsScreen';

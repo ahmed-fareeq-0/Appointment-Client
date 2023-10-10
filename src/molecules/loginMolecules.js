@@ -7,9 +7,9 @@ import { Context } from '../context/Provider';
 import { useNavigation } from '@react-navigation/native';
 
 
-const LoginMolecules = () => {
+const LoginMolecules = ({ button }) => {
     const navigation = useNavigation();
-    const { usernameSignIn, setUsernameSignIn, passwordSignIn, setPasswordSignIn } = useContext(Context)
+    const { usernameSignIn, setUsernameSignIn, passwordSignIn, setPasswordSignIn, handleLogin } = useContext(Context)
 
     return (
         <View style={styles.wrapper}>
@@ -30,7 +30,7 @@ const LoginMolecules = () => {
                 color="black"
                 secureTextEntry
             />
-            <ButtonAtom />
+            <ButtonAtom button={button} onPress={handleLogin} />
             <TouchableOpacity style={styles.signup} onPress={() => navigation.navigate('signUp')}>
                 <Text style={styles.textSignup}>لا تمتلك حساب؟ سجل من هنا.</Text>
             </TouchableOpacity>
@@ -43,15 +43,14 @@ const styles = StyleSheet.create({
         paddingVertical: sizes.padding * 5,
         justifyContent: 'center',
         padding: 16,
-        // backgroundColor:'blue'
     },
     signup: {
         marginVertical: sizes.padding / 3,
         alignSelf: 'center',
     },
     textSignup: {
+        fontSize: sizes.caption,
         color: colors.gray,
-        fontSize: sizes.caption
     },
 })
 

@@ -1,18 +1,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SignUp from '../screens/signUp';
-import SignIn from '../screens/signIn';
-import OnBoardingScreen from './../screens/onBoardingScreen';
+import RegisterScreen from '../screens/RegisterScreen';
+import OnBoardingScreen from '../screens/onBoardingScreen';
 import TermsOfServiceScreen from '../screens/termsOfServiceScreen';
 import WelcomeScreen from '../screens/welcomeScreen';
 import { StatusBar } from 'react-native';
 import DrawerNavigator from './drawerNavigator';
-import SignUpDoctors from '../screens/signUpDoctors'
-import LoginScreen from '../screens/signIn';
-
-
-
+import SignUpDoctors from '../screens/signUpDoctors';
+import LoginScreen from '../screens/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +25,7 @@ const AppStack = () => {
           <Stack.Screen name="onBoarding" component={OnBoardingScreen} />
           <Stack.Screen name="welcome" component={WelcomeScreen} />
           <Stack.Screen name="signIn" component={LoginScreen} />
-          <Stack.Screen name="signUp" component={SignUp} />
+          <Stack.Screen name="signUp" component={RegisterScreen} />
           <Stack.Screen name="signUpDoctors" component={SignUpDoctors} />
           <Stack.Screen name="termsOfService" component={TermsOfServiceScreen} />
         </>

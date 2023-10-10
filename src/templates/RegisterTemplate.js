@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import LoginOrganism from './../organisms/loginOrganism';
+import RegisterOrganism from './../organisms/RegisterOrganism';
 import { colors, sizes } from '../constants/theme';
 
-const LoginTemplate = () => {
+const RegisterTemplate = () => {
     return (
         <View style={styles.container}>
             <View style={{ marginVertical: sizes.base * 3 }}>
-                <Text style={styles.title}>تسجيل دخول</Text>
-                <Text style={styles.descTitle}>مرحبا بك مرة اخرى من هنا يمكنك تسجيل الدخول.</Text>
+                <Text style={styles.title}>تسجيل حساب جديد</Text>
+                <Text style={styles.descTitle}>مرحبا بك عرفنا بنفسك اكثر من خلال تسجيل معلوماتك الشخصية.</Text>
             </View>
-            <LoginOrganism button="تسجيل الدخول" />
+            <RegisterOrganism />
         </View>
     );
 };
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default LoginTemplate;
+export default RegisterTemplate;

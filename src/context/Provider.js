@@ -27,7 +27,7 @@ export const Provider = ({ children }) => {
     }
   };
 
-  const handleSignUp = () => {
+  const handleRegister = () => {
     console.log('Username:', username);
     console.log('email:', email);
     console.log('phone:', phone);
@@ -35,7 +35,7 @@ export const Provider = ({ children }) => {
     console.log('confirmPassword:', confirmPassword);
   };
 
-  const handleSignIn = () => {
+  const handleLogin = () => {
     console.log('Username:', usernameSignIn);
     console.log('Password:', passwordSignIn);
     setUsernameSignIn("")
@@ -60,12 +60,12 @@ export const Provider = ({ children }) => {
         setPhone,
         setPassword,
         setconfirmPassword,
-        handleSignUp,
+        handleRegister,
         usernameSignIn,
         setUsernameSignIn,
         passwordSignIn,
         setPasswordSignIn,
-        handleSignIn
+        handleLogin
 
       }}>
       {children}
