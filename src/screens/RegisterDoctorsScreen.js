@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import RegisterDoctorsTemplate from '../templates/RegisterDoctorsTemplate';
 
-const RegisterScreen = () => {
+const RegisterDoctorsScreen = () => {
 
     return (
         <View style={styles.container}>
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default RegisterScreen
+export default RegisterDoctorsScreen

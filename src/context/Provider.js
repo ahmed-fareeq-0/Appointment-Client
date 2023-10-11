@@ -5,6 +5,15 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export const Context = createContext();
 
 export const Provider = ({ children }) => {
+
+  const specialtiesData = [
+    { id: '1', name: 'الاسنان', img: require('./../../assets/tooth.png') },
+    { id: '2', name: 'العيون', img: require('./../../assets/visible.png') },
+    { id: '3', name: 'القلب', img: require('./../../assets/heart.png') },
+    { id: '4', name: 'الاذن والحنجرة', img: require('./../../assets/deaf.png') },
+    { id: '5', name: 'الجلدية', img: require('./../../assets/smallpox.png') },
+  ];
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState('');
 
@@ -68,7 +77,8 @@ export const Provider = ({ children }) => {
         setUsernameSignIn,
         passwordSignIn,
         setPasswordSignIn,
-        handleLogin
+        handleLogin,
+        specialtiesData
 
       }}>
       {children}

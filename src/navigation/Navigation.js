@@ -7,13 +7,13 @@ import TermsOfServiceScreen from '../screens/termsOfServiceScreen';
 import WelcomeScreen from '../screens/welcomeScreen';
 import { StatusBar } from 'react-native';
 import DrawerNavigator from './drawerNavigator';
-import SignUpDoctors from '../screens/signUpDoctors';
+import RegisterDoctorsScreen from './../screens/RegisterDoctorsScreen';
 import LoginScreen from '../screens/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
-  const condition = false;
+  const condition = true;
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="onBoarding">
       {condition ? (
@@ -26,7 +26,7 @@ const AppStack = () => {
           <Stack.Screen name="welcome" component={WelcomeScreen} />
           <Stack.Screen name="signIn" component={LoginScreen} />
           <Stack.Screen name="signUp" component={RegisterScreen} />
-          <Stack.Screen name="signUpDoctors" component={SignUpDoctors} />
+          <Stack.Screen name="signUpDoctors" component={RegisterDoctorsScreen} />
           <Stack.Screen name="termsOfService" component={TermsOfServiceScreen} />
         </>
       )
