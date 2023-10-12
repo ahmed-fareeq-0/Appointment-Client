@@ -14,6 +14,108 @@ export const Provider = ({ children }) => {
     { id: '5', name: 'الجلدية', img: require('./../../assets/smallpox.png') },
   ];
 
+  const RecommendedDoctorsData = [
+    {
+      id: '1',
+      name: 'د. حسن سلام',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب القلب',
+      description: 'طبيب قلب ذو خبرة مع التركيز على صحة القلب.',
+    },
+    {
+      id: '2',
+      name: 'د. حسن رائد',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب العيون',
+      description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
+    },
+    {
+      id: '3',
+      name: 'د. علي محمد',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب حنجرة ',
+      description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
+    },
+    {
+      id: '4',
+      name: 'د. محمد فراس',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب اسنان ',
+      description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
+    },
+    {
+      id: '5',
+      name: 'د. حسن سلام',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب القلب',
+      description: 'طبيب قلب ذو خبرة مع التركيز على صحة القلب.',
+    },
+    {
+      id: '6',
+      name: 'د. حسن رائد',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب العيون',
+      description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
+    },
+    {
+      id: '7',
+      name: 'د. علي محمد',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب حنجرة ',
+      description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
+    },
+    {
+      id: '8',
+      name: 'د. محمد فراس',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب اسنان ',
+      description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
+    },
+    {
+      id: '9',
+      name: 'د. حسن رائد',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب العيون',
+      description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
+    },
+    {
+      id: '10',
+      name: 'د. علي محمد',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب حنجرة ',
+      description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
+    },
+    {
+      id: '11',
+      name: 'د. محمد فراس',
+      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+      specialty: 'طبيب اسنان ',
+      description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
+    },
+  ];
+
+  const doctorsData = [
+    {
+      id: '1',
+      name: 'د. علي محمد حسين',
+      specialty: 'اخصائي قلب',
+      location: 'كربلاء حي الحسين',
+      image: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'), // تحديث مع مسار الصورة الخاصة بك
+    },
+    {
+      id: '2',
+      name: 'د. محمد عبد السلام',
+      specialty: 'اخصائي جلدية',
+      location: 'كربلاء الاسكان',
+      image: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+    },
+  ]
+
+  const appointmentsData = [
+    { id: 1, time: '2023-09-28 10:00 AM', appointmentType: 'د.محمد حسن اختصاص أذن وحنجرة' },
+    { id: 2, time: '2023-09-29 11:00 AM', appointmentType: 'د.علي محمد اختصاص باطنية' },
+  ];
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState('');
 
@@ -78,7 +180,10 @@ export const Provider = ({ children }) => {
         passwordSignIn,
         setPasswordSignIn,
         handleLogin,
-        specialtiesData
+        specialtiesData,
+        doctorsData,
+        RecommendedDoctorsData,
+        appointmentsData,
 
       }}>
       {children}

@@ -8,7 +8,7 @@ const IconAtom = ({ name, size, color }) => {
     return <MaterialIcons name={name} size={size} color={color} />;
   } else if (name === 'phone') {
     return <FontAwesome name={name} size={size} color={color} />;
-  } else if (name === 'eye-outline') {
+  } else if (name === 'eye-outline' || "calendar") {
     return <Ionicons name={name} size={size} color={color} />;
   } else if (name === 'remove-red-eye') {
     return <MaterialIcons name={name} size={size} color={color} />;
