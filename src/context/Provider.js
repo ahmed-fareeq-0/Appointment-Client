@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Linking } from 'react-native';
 
 export const Context = createContext();
 
@@ -116,6 +117,32 @@ export const Provider = ({ children }) => {
     { id: 2, time: '2023-09-29 11:00 AM', appointmentType: 'د.علي محمد اختصاص باطنية' },
   ];
 
+  const profileData = {
+    name: 'احمد فريق',
+    email: 'ahmed@example.com',
+    imageSource: require('../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+    infoData: [
+      { label: 'العمر', value: '30' },
+      { label: 'العنوان', value: 'كربلاء' },
+      { label: 'رقم الهاتف', value: '07715503646' },
+    ],
+  };
+
+  const doctor = {
+    name: 'د. علي حسن',
+    image: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+    address: 'حي الحسين, شارع المشجر',
+    location: {
+        latitude: 32.606111,
+        longitude: 44.059430,
+    },
+    specialization: 'طبيب عام',
+    bio: 'دكتور خبير في علاج الأمراض المزمنة والعناية بصحة العائلة.',
+    phone: '1234567890',
+};
+
+  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState('');
 
@@ -129,6 +156,17 @@ export const Provider = ({ children }) => {
 
   const [usernameSignIn, setUsernameSignIn] = useState('');
   const [passwordSignIn, setPasswordSignIn] = useState('');
+
+
+  const openMapsApp = () => {
+    const { latitude, longitude } = doctor.location;
+    const url = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
+    Linking.openURL(url);
+};
+
+  const handleNotificationsToggle = () => {
+    setNotificationsEnabled((prev) => !prev);
+};
 
   const handleAppointmentBooking = () => {
     if (selectedDate && selectedTime) {
@@ -184,6 +222,12 @@ export const Provider = ({ children }) => {
         doctorsData,
         RecommendedDoctorsData,
         appointmentsData,
+        profileData,
+        notificationsEnabled,
+        setNotificationsEnabled,
+        handleNotificationsToggle,
+        openMapsApp,
+        doctor
 
       }}>
       {children}
