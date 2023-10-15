@@ -33,11 +33,7 @@ const WelcomeScreen = () => {
                             حساب المستخدم
                         </Text>
                     </TouchableOpacity >
-                    <TouchableOpacity style={[styles.btn, { borderWidth: 0.4, borderColor: 'black', color: colors.black }]} onPress={() => navigation.navigate('signUpDoctors')}>
-                        <Text style={styles.btnText}>
-                            حساب الطبيب
-                        </Text>
-                    </TouchableOpacity >
+                    
                     <TouchableOpacity style={[styles.termsOfServices]} onPress={() => navigation.navigate('termsOfService')}>
                         <Text style={styles.textServices}>شروط الخدمة</Text>
                     </TouchableOpacity>

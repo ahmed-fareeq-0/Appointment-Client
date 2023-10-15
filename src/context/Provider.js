@@ -2,10 +2,12 @@ import React, { createContext, useState } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Linking } from 'react-native';
+import useUser from "../hooks/useUser";
 
 export const Context = createContext();
 
 export const Provider = ({ children }) => {
+  const user = useUser();
 
   const specialtiesData = [
     { id: '1', name: 'الاسنان', img: require('./../../assets/tooth.png') },
@@ -133,40 +135,28 @@ export const Provider = ({ children }) => {
     image: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
     address: 'حي الحسين, شارع المشجر',
     location: {
-        latitude: 32.606111,
-        longitude: 44.059430,
+      latitude: 32.606111,
+      longitude: 44.059430,
     },
     specialization: 'طبيب عام',
     bio: 'دكتور خبير في علاج الأمراض المزمنة والعناية بصحة العائلة.',
     phone: '1234567890',
-};
+  };
 
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-
+  const [modalVisible, setModalVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState('');
-
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [specialty, setSpecialty] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setconfirmPassword] = useState('');
-
-
-  const [usernameSignIn, setUsernameSignIn] = useState('');
-  const [passwordSignIn, setPasswordSignIn] = useState('');
-
 
   const openMapsApp = () => {
     const { latitude, longitude } = doctor.location;
     const url = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
     Linking.openURL(url);
-};
+  };
 
   const handleNotificationsToggle = () => {
     setNotificationsEnabled((prev) => !prev);
-};
+  };
 
   const handleAppointmentBooking = () => {
     if (selectedDate && selectedTime) {
@@ -177,19 +167,8 @@ export const Provider = ({ children }) => {
     }
   };
 
-  const handleRegister = () => {
-    console.log('Username:', username);
-    console.log('email:', email);
-    console.log('phone:', phone);
-    console.log('password:', password);
-    console.log('confirmPassword:', confirmPassword);
-  };
-
-  const handleLogin = () => {
-    console.log('Username:', usernameSignIn);
-    console.log('Password:', passwordSignIn);
-    setUsernameSignIn("")
-    setPasswordSignIn("")
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
   };
 
   return (
@@ -200,24 +179,9 @@ export const Provider = ({ children }) => {
         setSelectedDate,
         setSelectedTime,
         handleAppointmentBooking,
-        username,
-        email,
-        phone,
-        specialty,
-        setSpecialty,
-        password,
-        confirmPassword,
-        setUsername,
-        setEmail,
-        setPhone,
-        setPassword,
-        setconfirmPassword,
-        handleRegister,
-        usernameSignIn,
-        setUsernameSignIn,
-        passwordSignIn,
-        setPasswordSignIn,
-        handleLogin,
+
+        ...user,
+
         specialtiesData,
         doctorsData,
         RecommendedDoctorsData,
@@ -227,7 +191,10 @@ export const Provider = ({ children }) => {
         setNotificationsEnabled,
         handleNotificationsToggle,
         openMapsApp,
-        doctor
+        doctor,
+        modalVisible,
+        setModalVisible,
+        handleDateSelect
 
       }}>
       {children}

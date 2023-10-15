@@ -41,7 +41,6 @@ const RegisterMolecules = () => {
                 placeholder='كلمة المرور'
                 value={password}
                 onChangeText={setPassword}
-                iconName="eye-outline"
                 size={24}
                 color="black"
                 secureTextEntry
@@ -50,7 +49,6 @@ const RegisterMolecules = () => {
                 placeholder='التأكد من كلمة المرور'
                 value={confirmPassword}
                 onChangeText={setconfirmPassword}
-                iconName="eye-outline"
                 size={24}
                 color="black"
                 secureTextEntry
