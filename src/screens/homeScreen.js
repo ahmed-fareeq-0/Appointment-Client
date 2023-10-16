@@ -3,6 +3,7 @@ import React from 'react';
 import MainHeader from '../components/mainHeader';
 import Specialties from '../components/specialtiesComponent';
 import RecommendedDoctors from '../components/recommendedDoctors';
+import { colors } from '../constants/theme';
 
 const HomeScreen = () => {
     return (
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fbfbfb',
     },
     title: {
+        color: colors.gray3,
         fontSize: 20,
         fontWeight: 'bold',
     },

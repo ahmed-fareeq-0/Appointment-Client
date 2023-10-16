@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import InputAtom from '../atoms/inputAtom'
 import ButtonAtom from '../atoms/buttonAtom';
-import { colors, sizes } from '../constants/theme';
-import { Context } from '../context/Provider';
+import { colors, sizes } from '../../constants/theme';
+import { Context } from '../../context/Provider';
 import { useNavigation } from '@react-navigation/native';
 
 

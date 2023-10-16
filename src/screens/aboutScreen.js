@@ -1,5 +1,5 @@
 import React from 'react';
-import AboutOrganism from '../organisms/AboutOrganism';
+import AboutOrganism from '../components/organisms/AboutOrganism';
 
 const AboutScreen = () => {
     return <AboutOrganism />;

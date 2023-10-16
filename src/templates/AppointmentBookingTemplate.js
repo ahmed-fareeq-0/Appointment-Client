@@ -1,5 +1,5 @@
 import React from 'react';
-import AppointmentBookingOrganism from '../organisms/AppointmentBookingOrganism';
+import AppointmentBookingOrganism from '../components/organisms/AppointmentBookingOrganism';
 
 const AppointmentScreenTemplate = () => {
     return <AppointmentBookingOrganism />;

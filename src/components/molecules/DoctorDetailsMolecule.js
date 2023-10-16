@@ -2,26 +2,26 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import TextAtom from '../atoms/textAtom';
 import ImageAtom from '../atoms/imageAtom';
-import { colors } from '../constants/theme';
+import { colors } from '../../constants/theme';
 import IconAtom from '../atoms/iconAtom';
 
-const DoctorDetailsMolecule = ({ doctor }) => {
+const DoctorDetailsMolecule = ({ doctorDetails }) => {
     return (
         <View style={styles.container}>
-            <ImageAtom source={doctor.image} style={styles.doctorImage} />
+            <ImageAtom source={doctorDetails.image} style={styles.doctorImage} />
             <View style={styles.doctorInfo}>
-                <TextAtom style={styles.doctorName}>{doctor.name}</TextAtom>
+                <TextAtom style={styles.doctorName}>{doctorDetails.name}</TextAtom>
                 <View style={styles.tttt}>
                     <IconAtom name="location-arrow" size={16} color={colors.blue2} />
-                    <TextAtom style={styles.doctorAddress}>{doctor.address}</TextAtom>
+                    <TextAtom style={styles.doctorAddress}>{doctorDetails.address}</TextAtom>
                 </View>
                 <View style={styles.tttt}>
                     <IconAtom name="stethoscope" size={16} color={colors.blue2} />
-                    <TextAtom style={styles.doctorDetails}>{doctor.specialization}</TextAtom>
+                    <TextAtom style={styles.doctorDetails}>{doctorDetails.specialization}</TextAtom>
                 </View>
                 <View style={styles.tttt}>
                     <IconAtom name="phone" size={16} color={colors.blue2} />
-                    <TextAtom style={styles.doctorDetails}>{doctor.phone}</TextAtom>
+                    <TextAtom style={styles.doctorDetails}>{doctorDetails.phone}</TextAtom>
                 </View>
             </View>
         </View>

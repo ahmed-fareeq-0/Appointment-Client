@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import IconAtom from "../atoms/iconAtom";
 import AppointmentDetailsMolecule from "../molecules/AppointmentDetailsMolecule";
-import { colors } from "../constants/theme";
+import { colors } from "../../constants/theme";
 
 const AppointmentItemOrganisms = ({ appointmentType, time }) => {
     return (

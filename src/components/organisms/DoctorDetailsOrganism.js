@@ -3,11 +3,11 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import TextAtom from '../atoms/textAtom';
 import ImageAtom from '../atoms/imageAtom';
 import DoctorInfoMolecule from '../molecules/DoctorDetailsMolecule';
-import { colors, sizes } from '../constants/theme';
+import { colors, sizes } from '../../constants/theme';
 import MapView, { Marker } from 'react-native-maps';
-import { Context } from '../context/Provider';
+import { Context } from '../../context/Provider';
 
-const DoctorDetailsOrganism = ({ doctor, handleBookAppointment }) => {
+const DoctorDetailsOrganism = ({ doctorDetails, handleBookAppointment }) => {
 
     const { openMapsApp } = useContext(Context)
 
@@ -16,25 +16,25 @@ const DoctorDetailsOrganism = ({ doctor, handleBookAppointment }) => {
             <MapView
                 style={styles.map}
                 initialRegion={{
-                    latitude: doctor.location.latitude,
-                    longitude: doctor.location.longitude,
+                    latitude: doctorDetails.location.latitude,
+                    longitude: doctorDetails.location.longitude,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
                 }}
             >
                 <Marker
                     coordinate={{
-                        latitude: doctor.location.latitude,
-                        longitude: doctor.location.longitude,
+                        latitude: doctorDetails.location.latitude,
+                        longitude: doctorDetails.location.longitude,
                     }}
-                    title={doctor.name}
+                    title={doctorDetails.name}
                 >
-                    <ImageAtom source={doctor.image} style={styles.markerImage} />
+                    <ImageAtom source={doctorDetails.image} style={styles.markerImage} />
                 </Marker>
             </MapView>
 
             <View style={styles.box}>
-                <DoctorInfoMolecule doctor={doctor} />
+                <DoctorInfoMolecule doctorDetails={doctorDetails} />
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.bookButton} onPress={handleBookAppointment}>
                         <TextAtom style={styles.bookButtonText}>حجز</TextAtom>

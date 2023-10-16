@@ -1,7 +1,7 @@
 import React from 'react';
 import { Calendar } from 'react-native-calendars';
 import { StyleSheet } from 'react-native';
-import { colors } from '../constants/theme';
+import { colors } from '../../constants/theme';
 
 const CalendarMolecule = ({ handleDateSelect, selectedDate }) => {
     return (

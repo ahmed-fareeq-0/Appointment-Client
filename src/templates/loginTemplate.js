@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import LoginOrganism from './../organisms/loginOrganism';
+import LoginOrganism from '../components/organisms/loginOrganism';
 import { colors, sizes } from '../constants/theme';
 
 const LoginTemplate = () => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import DoctorsListOrganism from "../organisms/DoctorsListOrganism";
-import DoctorItemMolecule from "../molecules/DoctorItemMolecule";
+import DoctorsListOrganism from "../components/organisms/DoctorsListOrganism";
+import DoctorItemMolecule from "../components/molecules/DoctorItemMolecule";
 import { Context } from "../context/Provider";
 
 

@@ -3,11 +3,17 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Linking } from 'react-native';
 import useUser from "../hooks/useUser";
+import useAppointments from "../hooks/useAppointments";
+import useSettings from "../hooks/useSettings";
 
 export const Context = createContext();
 
 export const Provider = ({ children }) => {
   const user = useUser();
+  const appointments = useAppointments();
+  const settings = useSettings();
+  const [modalVisible, setModalVisible] = useState(false);
+
 
   const specialtiesData = [
     { id: '1', name: 'الاسنان', img: require('./../../assets/tooth.png') },
@@ -130,7 +136,7 @@ export const Provider = ({ children }) => {
     ],
   };
 
-  const doctor = {
+  const doctorDetails = {
     name: 'د. علي حسن',
     image: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
     address: 'حي الحسين, شارع المشجر',
@@ -143,58 +149,29 @@ export const Provider = ({ children }) => {
     phone: '1234567890',
   };
 
-  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTime, setSelectedTime] = useState('');
-
   const openMapsApp = () => {
-    const { latitude, longitude } = doctor.location;
+    const { latitude, longitude } = doctorDetails.location;
     const url = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
     Linking.openURL(url);
-  };
-
-  const handleNotificationsToggle = () => {
-    setNotificationsEnabled((prev) => !prev);
-  };
-
-  const handleAppointmentBooking = () => {
-    if (selectedDate && selectedTime) {
-      // Implement the booking logic here
-      console.log('Appointment booked on', selectedDate, 'at', selectedTime);
-    } else {
-      console.log('Please select a date and time before booking.');
-    }
-  };
-
-  const handleDateSelect = (date) => {
-    setSelectedDate(date);
   };
 
   return (
     <Context.Provider
       value={{
-        selectedDate,
-        selectedTime,
-        setSelectedDate,
-        setSelectedTime,
-        handleAppointmentBooking,
 
         ...user,
+        ...appointments,
+        ...settings,
 
         specialtiesData,
         doctorsData,
         RecommendedDoctorsData,
         appointmentsData,
         profileData,
-        notificationsEnabled,
-        setNotificationsEnabled,
-        handleNotificationsToggle,
         openMapsApp,
-        doctor,
+        doctorDetails,
         modalVisible,
         setModalVisible,
-        handleDateSelect
 
       }}>
       {children}

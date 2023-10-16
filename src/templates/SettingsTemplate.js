@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import SettingsOrganism from '../organisms/SettingsOrganism';
+import SettingsOrganism from '../components/organisms/SettingsOrganism';
 
 const SettingsTemplate = () => {
     return (

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import RecommendedDoctorsMolecules from '../molecules/recommendedDoctorsMolecules';
-import { Context } from '../context/Provider';
+import { Context } from '../../context/Provider';
 import TextAtom from '../atoms/textAtom';
-import { colors } from '../constants/theme';
+import { colors } from '../../constants/theme';
 const RecommendedDoctorsOrganism = () => {
     const { RecommendedDoctorsData } = useContext(Context);
 

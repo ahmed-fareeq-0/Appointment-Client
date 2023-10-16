@@ -3,13 +3,13 @@ import { View, StyleSheet } from 'react-native';
 import TextAtom from '../atoms/textAtom';
 import ImageAtom from '../atoms/imageAtom';
 import AboutMolecule from '../molecules/AboutMolecule';
-import { colors } from '../constants/theme';
+import { colors } from '../../constants/theme';
 
 const AboutOrganism = () => {
     return (
         <View style={styles.container}>
             <ImageAtom
-                source={require('../../assets/Screenshot_2023-09-22_213847-removebg-preview.png')}
+                source={require('../../../assets/Screenshot_2023-09-22_213847-removebg-preview.png')}
                 style={styles.appIcon}
             />
             <TextAtom style={styles.header}>حول التطبيق</TextAtom>

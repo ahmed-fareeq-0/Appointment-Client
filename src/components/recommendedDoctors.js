@@ -1,5 +1,5 @@
 import React from 'react';
-import RecommendedDoctorsOrganism from '../organisms/RecommendedDoctorsOrganisms';
+import RecommendedDoctorsOrganism from './organisms/RecommendedDoctorsOrganisms';
 
 const DoctorsPage = () => {
     return (

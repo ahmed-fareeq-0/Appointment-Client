@@ -12,7 +12,7 @@ import LoginScreen from '../screens/LoginScreen';
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
-  const condition = false;
+  const condition = true;
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="onBoarding">
       {condition ? (

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
-import ProfileMolecule from '../molecules/ProfileMolecule';
-import ProfileOrganism from '../organisms/ProfileOrganism';
+import ProfileMolecule from '../components/molecules/ProfileMolecule';
+import ProfileOrganism from '../components/organisms/ProfileOrganism';
 import { Context } from '../context/Provider';
 
 const ProfileTemplate = () => {

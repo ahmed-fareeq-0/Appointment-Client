@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Context } from '../context/Provider';
+import { Context } from '../../context/Provider';
 import ButtonAtom from '../atoms/buttonAtom';
 import CalendarMolecule from '../molecules/CalendarMolecule';
-import AvailableTimes from '../screens/availableTimes';
-import { sizes, colors } from '../constants/theme';
+import AvailableTimes from '../../screens/availableTimes';
+import { sizes, colors } from '../../constants/theme';
 
 const AppointmentBookingOrganism = () => {
   const { selectedDate, handleAppointmentBooking, handleDateSelect, modalVisible, setModalVisible } = useContext(Context);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { colors, sizes } from '../constants/theme';
+import { colors, sizes } from '../../constants/theme';
 
 const ButtonAtom = ({ button, onPress }) => {
 

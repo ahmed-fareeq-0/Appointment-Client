@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import TextAtom from '../atoms/textAtom';
 import SettingsMolecule from '../molecules/SettingsMolecule';
 import TouchableOpacityAtom from '../atoms/touchableOpacityAtom';
-import { Context } from '../context/Provider';
+import { Context } from '../../context/Provider';
 
 const SettingsOrganism = () => {
 

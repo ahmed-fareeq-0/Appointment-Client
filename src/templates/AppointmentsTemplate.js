@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import TextAtom from "../atoms/textAtom";
+import TextAtom from "../components/atoms/textAtom";
 import { View, StyleSheet, FlatList } from "react-native";
 import { colors } from "../constants/theme";
-import AppointmentItemOrganisms from "../organisms/AppointmentItemOrganisms";
+import AppointmentItemOrganisms from "../components/organisms/AppointmentItemOrganisms";
 import { Context } from "../context/Provider";
 
 const AppointmentsTemplate = () => {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, FlatList } from 'react-native';
 import SpecialtiesMolecules from '../molecules/SpecialtiesMolecules';
-import { Context } from '../context/Provider';
+import { Context } from '../../context/Provider';
 
 const SpecialtiesOrganism = () => {
     const { specialtiesData } = useContext(Context)

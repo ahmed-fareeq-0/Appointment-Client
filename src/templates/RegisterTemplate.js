@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import RegisterOrganism from './../organisms/RegisterOrganism';
+import RegisterOrganism from '../components/organisms/RegisterOrganism';
 import { colors, sizes } from '../constants/theme';
 
 const RegisterTemplate = () => {

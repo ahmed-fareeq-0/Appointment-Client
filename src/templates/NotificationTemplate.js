@@ -1,5 +1,5 @@
 import React from 'react';
-import NotificationScreenOrganism from '../organisms/NotificationOrganism';
+import NotificationScreenOrganism from '../components/organisms/NotificationOrganism';
 
 const NotificationTemplate = () => {
     return <NotificationScreenOrganism />;
