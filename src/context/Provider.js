@@ -1,17 +1,29 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Linking } from 'react-native';
-import useUser from "../hooks/useUser";
-import useAppointments from "../hooks/useAppointments";
-import useSettings from "../hooks/useSettings";
+import { Alert, Linking } from 'react-native';
+import { registerUser } from "../services/ApiService";
+
+
+// import useUser from "../hooks/useUser";
+// import useAppointments from "../hooks/useAppointments";
+// import useSettings from "../hooks/useSettings";
 
 export const Context = createContext();
-
 export const Provider = ({ children }) => {
-  const user = useUser();
-  const appointments = useAppointments();
-  const settings = useSettings();
+
+
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState('');
+
+  const [usernameSignIn, setUsernameSignIn] = useState('');
+  const [passwordSignIn, setPasswordSignIn] = useState('');
+
+
+
+  // const user = useUser();
+  // const appointments = useAppointments();
+  // const settings = useSettings();
   const [modalVisible, setModalVisible] = useState(false);
 
 
@@ -149,19 +161,91 @@ export const Provider = ({ children }) => {
     phone: '1234567890',
   };
 
+  const register = async (name, email, phone, password, confirmPassword, navigation) => {
+
+    if (!name || !email || !phone || !password) {
+      Alert.alert('الحقول يا خرا');
+    } else {
+      if (password === confirmPassword) {
+        try {
+          await registerUser(name, email, phone, password);
+          Alert.alert('ممتاز!', 'تم تسجيل الحساب بنجاح', [
+            {
+              text: 'OK',
+              onPress: () => { navigation.navigate("signIn") },
+              style: 'cancel',
+            },
+          ]);
+        } catch (error) {
+          console.error('حدث خطأ أثناء التسجيل:', error);
+        }
+      } else {
+        Alert.alert('تأكد من ان كلمة المرور متطابقة');
+      }
+    }
+
+
+  };
+
+  const handleLogin = () => {
+    console.log('Username:', usernameSignIn);
+    console.log('Password:', passwordSignIn);
+    setUsernameSignIn("")
+    setPasswordSignIn("")
+  };
+
   const openMapsApp = () => {
     const { latitude, longitude } = doctorDetails.location;
     const url = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
     Linking.openURL(url);
   };
 
+  const handleAppointmentBooking = () => {
+    if (selectedDate && selectedTime) {
+      console.log('Appointment booked on', selectedDate, 'at', selectedTime);
+    } else {
+      console.log('Please select a date and time before booking.');
+    }
+  };
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+  };
+
   return (
     <Context.Provider
       value={{
 
-        ...user,
-        ...appointments,
-        ...settings,
+        // ...user,
+        // ...appointments,
+        // ...settings,
+
+        // name,
+        // email,
+        // phone,
+        // specialty,
+        // password,
+        // confirmPassword,
+        // setName,
+        // setEmail,
+        // setPhone,
+        // setSpecialty,
+        // setPassword,
+        // setconfirmPassword,
+        register,
+
+        usernameSignIn,
+        passwordSignIn,
+        setUsernameSignIn,
+        setPasswordSignIn,
+        handleLogin,
+
+        selectedDate,
+        selectedTime,
+        setSelectedDate,
+        setSelectedTime,
+        handleAppointmentBooking,
+        handleDateSelect,
 
         specialtiesData,
         doctorsData,

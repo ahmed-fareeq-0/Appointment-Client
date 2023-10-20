@@ -1,22 +1,35 @@
-import React, { useContext } from 'react';
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { View, TouchableOpacity, StyleSheet, Text, Alert } from 'react-native';
 import InputAtom from '../atoms/inputAtom'
 import ButtonAtom from '../atoms/buttonAtom';
 import { colors, sizes } from '../../constants/theme';
 import { Context } from '../../context/Provider';
 import { useNavigation } from '@react-navigation/native';
+import { registerHook } from '../../hooks/useUser';
 
 
 const RegisterMolecules = () => {
+
+    const { name, email, phone, password, confirmPassword, setName, setEmail, setPhone, setPassword, setConfirmPassword } = registerHook();
+
     const navigation = useNavigation();
-    const { username, setUsername, email, setEmail, phone, setPhone, password, setPassword, confirmPassword, setconfirmPassword, handleRegister } = useContext(Context)
+    const { register } = useContext(Context);
+
+    const handleRegister = async () => {
+        await register(name, email, phone, password, confirmPassword, navigation);
+        // setName('')
+        // setEmail('');
+        // setPhone('')
+        // setPassword('')
+        // setConfirmPassword('')
+    };
 
     return (
         <View style={styles.wrapper}>
             <InputAtom
                 placeholder='الأسم الثلاثي'
-                value={username}
-                onChangeText={setUsername}
+                value={name}
+                onChangeText={setName}
                 iconName="person"
                 size={24}
                 color="black"
@@ -49,7 +62,7 @@ const RegisterMolecules = () => {
             <InputAtom
                 placeholder='التأكد من كلمة المرور'
                 value={confirmPassword}
-                onChangeText={setconfirmPassword}
+                onChangeText={setConfirmPassword}
                 iconName="remove-red-eye"
                 size={24}
                 color="black"
