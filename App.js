@@ -1,7 +1,8 @@
 import registerNNPushToken from 'native-notify';
 import React from 'react'
 import Navigation from './src/navigation/Navigation';
-import { Provider } from './src/context/Provider';
+import { Provider } from 'react-redux';
+import store from './src/redux/store/store';
 // import * as Sentry from '@sentry/react-native';
 
 
@@ -16,7 +17,7 @@ import { Provider } from './src/context/Provider';
 export default function App() {
   registerNNPushToken(12907, 'hEm0wNQDHiJToBLKKiJIGe');
   return (
-    <Provider>
+    <Provider store={store}>
       <Navigation />
     </Provider>
   );

@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Alert, Linking } from 'react-native';
-import { registerUser } from "../services/ApiService";
 
 
 // import useUser from "../hooks/useUser";
@@ -162,28 +161,33 @@ export const Provider = ({ children }) => {
   };
 
   const register = async (name, email, phone, password, confirmPassword, navigation) => {
-
-    if (!name || !email || !phone || !password) {
-      Alert.alert('الحقول يا خرا');
-    } else {
-      if (password === confirmPassword) {
-        try {
-          await registerUser(name, email, phone, password);
-          Alert.alert('ممتاز!', 'تم تسجيل الحساب بنجاح', [
-            {
-              text: 'OK',
-              onPress: () => { navigation.navigate("signIn") },
-              style: 'cancel',
-            },
-          ]);
-        } catch (error) {
-          console.error('حدث خطأ أثناء التسجيل:', error);
-        }
-      } else {
-        Alert.alert('تأكد من ان كلمة المرور متطابقة');
-      }
+    if (!name || !email || !phone || !password || !confirmPassword) {
+      Alert.alert('الحقول يجب ملؤها');
+      return;
     }
 
+    if (password !== confirmPassword) {
+      Alert.alert('تأكد من أن كلمة المرور متطابقة');
+      return;
+    }
+
+    try {
+      const result = await registerUser(name, email, phone, password);
+      console.log(`DOOO: ${result}`);
+      if (result) {
+        Alert.alert('ممتاز!', result, [
+          {
+            text: 'OK',
+            onPress: () => { navigation.navigate("signIn") },
+            style: 'cancel',
+          },
+        ]);
+      } else {
+        Alert.alert('حدث خطأ أثناء التسجيل.');
+      }
+    } catch (error) {
+      console.error('حدث خطأ أثناء التسجيل:', error);
+    }
 
   };
 
@@ -262,3 +266,38 @@ export const Provider = ({ children }) => {
     </Context.Provider>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if (!name || !email || !phone || !password) {
+//   Alert.alert('الحقول يا خرا');
+// } else {
+//   if (password === confirmPassword) {
+//     try {
+//       const result = await registerUser(name, email, phone, password);
+//       console.log(`DOOO: ${result}` );
+//       Alert.alert('ممتاز!', 'تم تسجيل الحساب بنجاح', [
+//         {
+//           text: 'OK',
+//           onPress: () => { navigation.navigate("signIn") },
+//           style: 'cancel',
+//         },
+//       ]);
+//     } catch (error) {
+//       console.error('حدث خطأ أثناء التسجيل:', error);
+//     }
+//   } else {
+//     Alert.alert('تأكد من ان كلمة المرور متطابقة');
+//   }
+// }

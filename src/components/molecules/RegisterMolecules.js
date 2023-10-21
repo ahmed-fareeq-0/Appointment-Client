@@ -3,25 +3,25 @@ import { View, TouchableOpacity, StyleSheet, Text, Alert } from 'react-native';
 import InputAtom from '../atoms/inputAtom'
 import ButtonAtom from '../atoms/buttonAtom';
 import { colors, sizes } from '../../constants/theme';
-import { Context } from '../../context/Provider';
-import { useNavigation } from '@react-navigation/native';
-import { registerHook } from '../../hooks/useUser';
+import { useDispatch, useSelector } from 'react-redux';
+import { signUp } from '../../redux/slices/userSlice';
 
 
 const RegisterMolecules = () => {
 
-    const { name, email, phone, password, confirmPassword, setName, setEmail, setPhone, setPassword, setConfirmPassword } = registerHook();
+    const { loading, error } = useSelector(state => state.user);
 
-    const navigation = useNavigation();
-    const { register } = useContext(Context);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleRegister = async () => {
-        await register(name, email, phone, password, confirmPassword, navigation);
-        // setName('')
-        // setEmail('');
-        // setPhone('')
-        // setPassword('')
-        // setConfirmPassword('')
+    const dispatch = useDispatch();
+
+    const handleRegister = () => {
+        dispatch(signUp({ name, email, phone, password, user_type: "patient", }));
+        console.log(`signUP ${signUp}`);
     };
 
     return (
@@ -68,7 +68,16 @@ const RegisterMolecules = () => {
                 color="black"
                 secureTextEntry
             />
-            <ButtonAtom button="تسجيل" onPress={handleRegister} />
+            {
+                loading ?
+                    (
+                        <ButtonAtom button="انتظر من فضلك" onPress={handleRegister} />
+                    )
+                    :
+                    (
+                        <ButtonAtom button="تسجيل" onPress={handleRegister} />
+                    )
+            }
             <TouchableOpacity style={[styles.signup]} onPress={() => navigation.navigate("signIn")}>
                 <Text style={styles.textSignup}> لديك حساب؟ سجل دخول .</Text>
             </TouchableOpacity>
