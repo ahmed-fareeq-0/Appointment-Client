@@ -1,13 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Context } from '../../context/Provider';
 import ButtonAtom from '../atoms/buttonAtom';
 import CalendarMolecule from '../molecules/CalendarMolecule';
 import AvailableTimes from '../../screens/availableTimes';
 import { sizes, colors } from '../../constants/theme';
 
 const AppointmentBookingOrganism = () => {
-  const { selectedDate, handleAppointmentBooking, handleDateSelect, modalVisible, setModalVisible } = useContext(Context);
+
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedTime, setSelectedTime] = useState('');
+
+  const handleAppointmentBooking = () => {
+    if (selectedDate && selectedTime) {
+      console.log('Appointment booked on', selectedDate, 'at', selectedTime);
+    } else {
+      console.log('Please select a date and time before booking.');
+    }
+  };
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+  };
+
+
+
 
   return (
     <View style={styles.container}>
@@ -18,7 +35,7 @@ const AppointmentBookingOrganism = () => {
         <ButtonAtom button="اختر الوقت" onPress={() => setModalVisible(true)} />
         <ButtonAtom button="حجز" onPress={handleAppointmentBooking} />
       </View>
-      <AvailableTimes visible={modalVisible} onRequestClose={() => setModalVisible(false)} />
+      <AvailableTimes selectedTime={selectedTime} setSelectedTime={setSelectedTime} visible={modalVisible} onRequestClose={() => setModalVisible(false)} />
     </View>
   );
 };

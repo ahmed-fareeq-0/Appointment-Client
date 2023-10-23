@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Linking  } from 'react-native';
 import TextAtom from '../atoms/textAtom';
 import ImageAtom from '../atoms/imageAtom';
 import DoctorInfoMolecule from '../molecules/DoctorDetailsMolecule';
 import { colors, sizes } from '../../constants/theme';
 import MapView, { Marker } from 'react-native-maps';
-import { Context } from '../../context/Provider';
 
 const DoctorDetailsOrganism = ({ doctorDetails, handleBookAppointment }) => {
 
-    const { openMapsApp } = useContext(Context)
+    const openMapsApp = () => {
+        const { latitude, longitude } = doctorDetails.location;
+        const url = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
+        Linking.openURL(url);
+    };
 
     return (
         <View style={styles.container}>

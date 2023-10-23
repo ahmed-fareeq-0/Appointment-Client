@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Modal, StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native';
 import { Context } from '../context/Provider';
 import { colors, sizes } from '../constants/theme';
 import { Ionicons } from '@expo/vector-icons';
 
-const AvailableTimes = ({ visible, onRequestClose }) => {
-    const { selectedTime, setSelectedTime } = useContext(Context);
+const AvailableTimes = ({ visible, onRequestClose, selectedTime, setSelectedTime }) => {
+
 
     const availableTimes = [
         { id: '1', time: '9:00 AM' },

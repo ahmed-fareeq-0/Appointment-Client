@@ -15,8 +15,8 @@ export const Provider = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState('');
 
-  const [usernameSignIn, setUsernameSignIn] = useState('');
-  const [passwordSignIn, setPasswordSignIn] = useState('');
+  // const [usernameSignIn, setUsernameSignIn] = useState('');
+  // const [passwordSignIn, setPasswordSignIn] = useState('');
 
 
 
@@ -26,93 +26,93 @@ export const Provider = ({ children }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
 
-  const specialtiesData = [
-    { id: '1', name: 'الاسنان', img: require('./../../assets/tooth.png') },
-    { id: '2', name: 'العيون', img: require('./../../assets/visible.png') },
-    { id: '3', name: 'القلب', img: require('./../../assets/heart.png') },
-    { id: '4', name: 'الاذن والحنجرة', img: require('./../../assets/deaf.png') },
-    { id: '5', name: 'الجلدية', img: require('./../../assets/smallpox.png') },
-  ];
+  // const specialtiesData = [
+  //   { id: '1', name: 'الاسنان', img: require('./../../assets/tooth.png') },
+  //   { id: '2', name: 'العيون', img: require('./../../assets/visible.png') },
+  //   { id: '3', name: 'القلب', img: require('./../../assets/heart.png') },
+  //   { id: '4', name: 'الاذن والحنجرة', img: require('./../../assets/deaf.png') },
+  //   { id: '5', name: 'الجلدية', img: require('./../../assets/smallpox.png') },
+  // ];
 
-  const RecommendedDoctorsData = [
-    {
-      id: '1',
-      name: 'د. حسن سلام',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب القلب',
-      description: 'طبيب قلب ذو خبرة مع التركيز على صحة القلب.',
-    },
-    {
-      id: '2',
-      name: 'د. حسن رائد',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب العيون',
-      description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
-    },
-    {
-      id: '3',
-      name: 'د. علي محمد',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب حنجرة ',
-      description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
-    },
-    {
-      id: '4',
-      name: 'د. محمد فراس',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب اسنان ',
-      description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
-    },
-    {
-      id: '5',
-      name: 'د. حسن سلام',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب القلب',
-      description: 'طبيب قلب ذو خبرة مع التركيز على صحة القلب.',
-    },
-    {
-      id: '6',
-      name: 'د. حسن رائد',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب العيون',
-      description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
-    },
-    {
-      id: '7',
-      name: 'د. علي محمد',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب حنجرة ',
-      description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
-    },
-    {
-      id: '8',
-      name: 'د. محمد فراس',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب اسنان ',
-      description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
-    },
-    {
-      id: '9',
-      name: 'د. حسن رائد',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب العيون',
-      description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
-    },
-    {
-      id: '10',
-      name: 'د. علي محمد',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب حنجرة ',
-      description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
-    },
-    {
-      id: '11',
-      name: 'د. محمد فراس',
-      imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
-      specialty: 'طبيب اسنان ',
-      description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
-    },
-  ];
+  // const RecommendedDoctorsData = [
+  //   {
+  //     id: '1',
+  //     name: 'د. حسن سلام',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب القلب',
+  //     description: 'طبيب قلب ذو خبرة مع التركيز على صحة القلب.',
+  //   },
+  //   {
+  //     id: '2',
+  //     name: 'د. حسن رائد',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب العيون',
+  //     description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
+  //   },
+  //   {
+  //     id: '3',
+  //     name: 'د. علي محمد',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب حنجرة ',
+  //     description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
+  //   },
+  //   {
+  //     id: '4',
+  //     name: 'د. محمد فراس',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب اسنان ',
+  //     description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
+  //   },
+  //   {
+  //     id: '5',
+  //     name: 'د. حسن سلام',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب القلب',
+  //     description: 'طبيب قلب ذو خبرة مع التركيز على صحة القلب.',
+  //   },
+  //   {
+  //     id: '6',
+  //     name: 'د. حسن رائد',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب العيون',
+  //     description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
+  //   },
+  //   {
+  //     id: '7',
+  //     name: 'د. علي محمد',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب حنجرة ',
+  //     description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
+  //   },
+  //   {
+  //     id: '8',
+  //     name: 'د. محمد فراس',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب اسنان ',
+  //     description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
+  //   },
+  //   {
+  //     id: '9',
+  //     name: 'د. حسن رائد',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب العيون',
+  //     description: 'طبيب العيون ذو خبرة مع التركيز على صحة العين.',
+  //   },
+  //   {
+  //     id: '10',
+  //     name: 'د. علي محمد',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب حنجرة ',
+  //     description: 'طبيب حنجرة واذان ذو خبرة مع التركيز على صحة السمع.',
+  //   },
+  //   {
+  //     id: '11',
+  //     name: 'د. محمد فراس',
+  //     imageSource: require('./../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+  //     specialty: 'طبيب اسنان ',
+  //     description: 'طبيب  اسنان ذو خبرة مع التركيز على صحة الاسنان.',
+  //   },
+  // ];
 
   const doctorsData = [
     {
@@ -131,10 +131,10 @@ export const Provider = ({ children }) => {
     },
   ]
 
-  const appointmentsData = [
-    { id: 1, time: '2023-09-28 10:00 AM', appointmentType: 'د.محمد حسن اختصاص أذن وحنجرة' },
-    { id: 2, time: '2023-09-29 11:00 AM', appointmentType: 'د.علي محمد اختصاص باطنية' },
-  ];
+  // const appointmentsData = [
+  //   { id: 1, time: '2023-09-28 10:00 AM', appointmentType: 'د.محمد حسن اختصاص أذن وحنجرة' },
+  //   { id: 2, time: '2023-09-29 11:00 AM', appointmentType: 'د.علي محمد اختصاص باطنية' },
+  // ];
 
   const profileData = {
     name: 'احمد فريق',
@@ -198,11 +198,11 @@ export const Provider = ({ children }) => {
     setPasswordSignIn("")
   };
 
-  const openMapsApp = () => {
-    const { latitude, longitude } = doctorDetails.location;
-    const url = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
-    Linking.openURL(url);
-  };
+  // const openMapsApp = () => {
+  //   const { latitude, longitude } = doctorDetails.location;
+  //   const url = `https://maps.apple.com/?daddr=${latitude},${longitude}&dirflg=d`;
+  //   Linking.openURL(url);
+  // };
 
   const handleAppointmentBooking = () => {
     if (selectedDate && selectedTime) {
@@ -247,7 +247,7 @@ export const Provider = ({ children }) => {
         selectedDate,
         selectedTime,
         setSelectedDate,
-        setSelectedTime,
+        // setSelectedTime,
         handleAppointmentBooking,
         handleDateSelect,
 

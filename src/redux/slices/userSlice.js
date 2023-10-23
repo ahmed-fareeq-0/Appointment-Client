@@ -26,6 +26,17 @@ export const signUp = createAsyncThunk('signup/signUp', async (userData) => {
     }
 });
 
+export const signIn = createAsyncThunk('signin/signIn', async (userData) => {
+    try {
+        const response = await axios.post(`${API_BASE_URL}/login`, userData);
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.log(`login error ${error}`);
+        throw error;
+    }
+});
+
 
 export const userSlice = createSlice({
     name: 'user',
@@ -43,6 +54,18 @@ export const userSlice = createSlice({
             state.loading = false;
             state.error = true;
         });
+
+        builder.addCase(signIn.pending, (state) => {
+            state.loading = true;
+        })
+        builder.addCase(signIn.fulfilled, (state, action) => {
+            state.userData = action.payload;
+            state.loading = false;
+        })
+        builder.addCase(signIn.rejected, (state) => {
+            state.loading = false;
+            state.error = true;
+        })
     },
 })
 

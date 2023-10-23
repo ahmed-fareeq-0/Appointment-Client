@@ -5,7 +5,23 @@ import { Context } from "../context/Provider";
 
 
 const DoctorListTemplate = () => {
-    const { doctorsData } = useContext(Context);
+
+    const doctorsData = [
+        {
+            id: '1',
+            name: 'د. علي محمد حسين',
+            specialty: 'اخصائي قلب',
+            location: 'كربلاء حي الحسين',
+            image: require('../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'), // تحديث مع مسار الصورة الخاصة بك
+        },
+        {
+            id: '2',
+            name: 'د. محمد عبد السلام',
+            specialty: 'اخصائي جلدية',
+            location: 'كربلاء الاسكان',
+            image: require('../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+        },
+    ]
 
     const renderDoctorItem = ({ item }) => (
         <DoctorItemMolecule

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import TextAtom from '../atoms/textAtom';
 import SettingsMolecule from '../molecules/SettingsMolecule';
@@ -7,7 +7,11 @@ import { Context } from '../../context/Provider';
 
 const SettingsOrganism = () => {
 
-    const { notificationsEnabled, handleNotificationsToggle } = useContext(Context)
+    const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+
+    const handleNotificationsToggle = () => {
+        setNotificationsEnabled((prev) => !prev);
+    };
 
     return (
         <View style={styles.container}>

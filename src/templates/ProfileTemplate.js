@@ -1,13 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import ProfileMolecule from '../components/molecules/ProfileMolecule';
 import ProfileOrganism from '../components/organisms/ProfileOrganism';
-import { Context } from '../context/Provider';
 
 const ProfileTemplate = () => {
 
-    const { profileData } = useContext(Context)
-
+    const profileData = {
+        name: 'احمد فريق',
+        email: 'ahmed@example.com',
+        imageSource: require('../../assets/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg'),
+        infoData: [
+            { label: 'العمر', value: '30' },
+            { label: 'العنوان', value: 'كربلاء' },
+            { label: 'رقم الهاتف', value: '07715503646' },
+        ],
+    };
     return (
         <View style={styles.container}>
             <ProfileMolecule

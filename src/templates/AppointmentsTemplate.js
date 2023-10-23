@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import TextAtom from "../components/atoms/textAtom";
 import { View, StyleSheet, FlatList } from "react-native";
 import { colors } from "../constants/theme";
@@ -6,7 +6,11 @@ import AppointmentItemOrganisms from "../components/organisms/AppointmentItemOrg
 import { Context } from "../context/Provider";
 
 const AppointmentsTemplate = () => {
-    const { appointmentsData } = useContext(Context);
+
+    const appointmentsData = [
+        { id: 1, time: '2023-09-28 10:00 AM', appointmentType: 'د.محمد حسن اختصاص أذن وحنجرة' },
+        { id: 2, time: '2023-09-29 11:00 AM', appointmentType: 'د.علي محمد اختصاص باطنية' },
+    ];
     return (
         <View style={styles.container}>
             <TextAtom style={styles.header}>الحجوزات</TextAtom>

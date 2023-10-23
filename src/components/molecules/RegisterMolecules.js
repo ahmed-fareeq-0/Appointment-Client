@@ -1,13 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text, Alert } from 'react-native';
 import InputAtom from '../atoms/inputAtom'
 import ButtonAtom from '../atoms/buttonAtom';
 import { colors, sizes } from '../../constants/theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../redux/slices/userSlice';
+import { useNavigation } from '@react-navigation/native';
 
 
 const RegisterMolecules = () => {
+
+    const navigation = useNavigation();
 
     const { loading, error } = useSelector(state => state.user);
 
@@ -19,10 +22,38 @@ const RegisterMolecules = () => {
 
     const dispatch = useDispatch();
 
-    const handleRegister = () => {
-        dispatch(signUp({ name, email, phone, password, user_type: "patient", }));
-        console.log(`signUP ${signUp}`);
+    const handleRegister = async () => {
+        if (!name || !email || !phone || !password || !confirmPassword) {
+            Alert.alert('الحقول يجب ملؤها');
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            Alert.alert('تأكد من أن كلمة المرور متطابقة');
+            return;
+        }
+
+        try {
+            const response = await dispatch(signUp({ name, email, phone, password, user_type: "patient" }));
+            if (response.payload.error) {
+                Alert.alert('خطأ', response.payload.message);
+            } else {
+
+                Alert.alert('ممتاز!', "تم التسجيل بنجاح", [
+                    {
+                        text: 'OK',
+                        onPress: () => { navigation.navigate("signIn") },
+                        style: 'cancel',
+                    },
+                ]);
+
+            }
+        } catch (error) {
+            console.log('خطأ آخر: ', error);
+            Alert.alert('خطأ', 'حدث خطأ أثناء التسجيل');
+        }
     };
+
 
     return (
         <View style={styles.wrapper}>
